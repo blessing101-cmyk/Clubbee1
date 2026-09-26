@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CLUB BEE — ผึ้งน้อยรุมล้อม</title>
 <meta name="description" content="Club Bee — Find Your Match. Join the Hive. แพลตฟอร์มหาคู่และคอมมูนิตี้ ไทย / English / 中文">
-<meta name="theme-color" content="#D1005F" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#2B0418" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Club Bee">
 <meta property="og:title" content="CLUB BEE — ผึ้งน้อยรุมล้อม">
@@ -17,26 +17,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --honey:#D1005F; --gold:#FFC400; --gold-deep:#E69500; --gold-soft:#FFF0B3; --honey-deep:#9E0048; --honey-soft:#FFC2DC;
-  --ink:#2B0418; --brown:#B07A00; --brown-soft:#E0A800;
-  --cream:#FFEEF5; --white:#FFFFFF; --rose:#D7263D; --leaf:#3E8E5B; --sky:#3C7BD1;
-  --bg:#FFEEF5; --surface:#FFFFFF; --surface-2:#FFDCEB; --text:#2B0418; --muted:#85405F;
-  --line:#F7B8D3; --shadow:0 10px 30px rgba(158,0,72,.14);
+  --honey:#D4A017; --gold:#E8B923; --gold-deep:#9C7412; --gold-soft:#3A2C05; --honey-deep:#F2C94C; --honey-soft:#2E2306;
+  --ink:#000000; --brown:#C9971C; --brown-soft:#E0B84A;
+  --cream:#FFF1C9; --white:#FFFFFF; --rose:#E5484D; --leaf:#46A758; --sky:#4C8DEB;
+  --bg:#050505; --surface:#121110; --surface-2:#1E1807; --text:#FFF1C9; --muted:#CDAE5C;
+  --line:#4A3A0E; --shadow:0 10px 30px rgba(0,0,0,.6);
   --r-lg:26px; --r-md:16px; --r-sm:10px;
   --font-d:"Mitr","IBM Plex Sans Thai","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
   --font-b:"IBM Plex Sans Thai","PingFang SC","Microsoft YaHei",system-ui,-apple-system,"Segoe UI",sans-serif;
-  box-sizing:border-box;
+  box-sizing:border-box; color-scheme:dark;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --bg:#1F0510; --surface:#2E0A1C; --surface-2:#401029; --text:#FFF2F8; --muted:#F5B0CF;
-    --line:#6A1A42; --shadow:0 10px 30px rgba(0,0,0,.45); --honey-soft:#6E0A3C; --honey-deep:#FFD23F;
-  }
-}
-:root[data-theme="dark"]{
-  --bg:#1F0510; --surface:#2E0A1C; --surface-2:#401029; --text:#FFF2F8; --muted:#F5B0CF;
-  --line:#6A1A42; --shadow:0 10px 30px rgba(0,0,0,.45); --honey-soft:#6E0A3C; --honey-deep:#FFD23F;
+/* optional light variant (Profile → theme → Light) — still black & gold, just on a cream page */
+:root[data-theme="light"]{
+  --honey:#D4A017; --honey-deep:#7A5A00; --honey-soft:#F7E2A0; --gold-soft:#FCE9A8; --ink:#000000;
+  --bg:#FFF6D8; --surface:#FFFFFF; --surface-2:#FCE9A8; --text:#0A0A0A; --muted:#5C4A12;
+  --line:#E0C060; --shadow:0 10px 30px rgba(120,90,0,.18); color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
 html{scroll-padding-top:env(safe-area-inset-top,0px);height:100%}
@@ -57,10 +53,10 @@ p{margin:0 0 .8em} a{color:var(--honey-deep)}
 /* Buttons */
 .btn{appearance:none;border:0;cursor:pointer;border-radius:999px;padding:12px 22px;font-family:var(--font-d);font-weight:500;font-size:1rem;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .15s ease,background .2s}
 .btn:active{transform:scale(.97)}
-.btn-honey{background:linear-gradient(135deg,#F0247F,var(--honey) 55%,var(--honey-deep));color:#FFFFFF;box-shadow:0 6px 18px rgba(209,0,95,.35)}
-.btn-honey:hover{background:linear-gradient(135deg,#E8157A,#B00052);box-shadow:0 6px 22px rgba(255,196,0,.45)}
-.btn-ink{background:var(--ink);color:#FFF2F8}
-:root[data-theme="dark"] .btn-ink{background:#FFF2F8;color:#2B0418}
+.btn-honey{background:linear-gradient(135deg,#FFE27A 0%,#E8B923 30%,#C9971C 65%,#8C6510 100%);color:#111111;font-weight:600;box-shadow:0 6px 18px rgba(255,196,0,.35)}
+.btn-honey:hover{background:linear-gradient(135deg,#E8B923,#C9971C);box-shadow:0 6px 22px rgba(0,0,0,.25)}
+.btn-ink{background:var(--ink);color:#FFF8E1}
+:root[data-theme="dark"] .btn-ink{background:#FFF8E1;color:#111111}
 .btn-ghost{background:transparent;border:1.5px solid var(--line);color:var(--text)}
 .btn-danger{background:var(--rose);color:#fff}
 .btn-sm{padding:7px 14px;font-size:.88rem}
@@ -78,7 +74,7 @@ textarea.inp{min-height:90px;resize:vertical}
 .check input{width:20px;height:20px;accent-color:var(--honey-deep);flex:none;margin-top:3px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chip{border:1.5px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 14px;cursor:pointer;font-size:.9rem}
-.chip.on{background:var(--honey);border-color:var(--honey);color:#FFFFFF}
+.chip.on{background:var(--honey);border-color:var(--honey);color:#111111}
 .tag{display:inline-block;background:var(--surface-2);border-radius:999px;padding:3px 10px;font-size:.8rem;margin:2px}
 .err{color:var(--rose);font-size:.85rem;min-height:1.2em}
 
@@ -129,7 +125,7 @@ footer.site a{color:var(--muted);margin-right:14px}
 .hive-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px}
 .mini-card{position:relative;border-radius:var(--r-md);overflow:hidden;aspect-ratio:3/4;background:var(--surface-2)}
 .mini-card img{width:100%;height:100%;object-fit:cover}
-.mini-card .cap{position:absolute;inset:auto 0 0 0;padding:10px;background:linear-gradient(transparent,rgba(43,4,24,.85));color:#FFF2F8;font-size:.85rem}
+.mini-card .cap{position:absolute;inset:auto 0 0 0;padding:10px;background:linear-gradient(transparent,rgba(17,17,17,.85));color:#FFF8E1;font-size:.85rem}
 
 /* App shell */
 .app{max-width:560px;margin:0 auto;min-height:100vh;padding-bottom:84px}
@@ -142,17 +138,17 @@ footer.site a{color:var(--muted);margin-right:14px}
 .bottomnav a.on::before{content:"";position:absolute;top:0;left:30%;right:30%;height:3px;border-radius:0 0 3px 3px;background:var(--honey)}
 .tabs{display:flex;gap:6px;overflow-x:auto;padding-bottom:4px;margin-bottom:12px}
 .tabs button{flex:none;border:0;background:var(--surface-2);padding:8px 14px;border-radius:999px;cursor:pointer;font-size:.9rem}
-.tabs button.on{background:var(--ink);color:#FFF2F8}
-:root[data-theme="dark"] .tabs button.on{background:var(--honey);color:#FFFFFF}
+.tabs button.on{background:var(--ink);color:#FFF8E1}
+:root[data-theme="dark"] .tabs button.on{background:var(--honey);color:#111111}
 
 /* Discover card */
 .deck{position:relative;height:min(64vh,560px);margin:6px 0 14px}
 .card{position:absolute;inset:0;border-radius:var(--r-lg);overflow:hidden;background:var(--surface);box-shadow:var(--shadow);touch-action:none;user-select:none;will-change:transform}
 .card .ph{position:absolute;inset:0}
 .card .ph img{width:100%;height:100%;object-fit:cover;pointer-events:none}
-.card .info{position:absolute;inset:auto 0 0 0;padding:20px 18px 18px;background:linear-gradient(transparent,rgba(43,4,24,.55) 25%,rgba(43,4,24,.92));color:#FFF2F8}
-.card .info h2{margin:0;font-size:1.7rem;color:#FFF2F8}
-.card .compat{position:absolute;top:14px;right:14px;width:74px;height:74px;display:grid;place-items:center;text-align:center;background:linear-gradient(145deg,#FFE066,var(--gold) 55%,var(--gold-deep));color:#2B0418;clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%);font-family:var(--font-d);line-height:1.05}
+.card .info{position:absolute;inset:auto 0 0 0;padding:20px 18px 18px;background:linear-gradient(transparent,rgba(17,17,17,.55) 25%,rgba(17,17,17,.92));color:#FFF8E1}
+.card .info h2{margin:0;font-size:1.7rem;color:#FFF8E1}
+.card .compat{position:absolute;top:14px;right:14px;width:74px;height:74px;display:grid;place-items:center;text-align:center;background:linear-gradient(145deg,#FFE27A,var(--gold) 55%,var(--gold-deep));color:#111111;clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%);font-family:var(--font-d);line-height:1.05}
 .card .compat b{font-size:1.25rem;font-weight:600;display:block}
 .card .compat span{font-size:.62rem}
 .card .stamp{position:absolute;top:30px;padding:6px 14px;border:4px solid;border-radius:10px;font-family:var(--font-d);font-size:1.6rem;opacity:0;transform:rotate(-14deg)}
@@ -174,7 +170,7 @@ footer.site a{color:var(--muted);margin-right:14px}
 .chat-head{display:flex;align-items:center;gap:10px;padding:10px 12px;border-bottom:1px solid var(--line)}
 .msgs{flex:1;overflow-y:auto;padding:14px 12px;display:flex;flex-direction:column;gap:6px}
 .bubble{max-width:78%;padding:9px 13px;border-radius:18px;word-wrap:break-word;position:relative}
-.bubble.me{align-self:flex-end;background:var(--honey);color:#FFFFFF;border-bottom-right-radius:5px}
+.bubble.me{align-self:flex-end;background:var(--honey);color:#111111;border-bottom-right-radius:5px}
 .bubble.them{align-self:flex-start;background:var(--surface);border:1px solid var(--line);border-bottom-left-radius:5px}
 .bubble img{border-radius:12px;max-height:240px}
 .bubble .meta{font-size:.68rem;opacity:.7;text-align:right;margin-top:2px}
@@ -189,11 +185,11 @@ footer.site a{color:var(--muted);margin-right:14px}
 .emoji-pop button{border:0;background:none;font-size:1.4rem;cursor:pointer}
 
 /* Overlays */
-.overlay{position:fixed;inset:0;z-index:60;background:rgba(43,4,24,.55);display:flex;align-items:flex-end;justify-content:center;padding-top:env(safe-area-inset-top,0px)}
+.overlay{position:fixed;inset:0;z-index:60;background:rgba(17,17,17,.55);display:flex;align-items:flex-end;justify-content:center;padding-top:env(safe-area-inset-top,0px)}
 .sheet{background:var(--bg);width:100%;max-width:560px;max-height:92vh;overflow-y:auto;border-radius:var(--r-lg) var(--r-lg) 0 0;padding:20px 18px calc(24px + env(safe-area-inset-bottom,0px))}
 @media (min-width:700px){.overlay{align-items:center}.sheet{border-radius:var(--r-lg)}}
 .sheet .grab{width:44px;height:5px;border-radius:3px;background:var(--line);margin:-6px auto 14px}
-.match-ov{position:fixed;inset:0;z-index:70;background:radial-gradient(circle at 50% 40%,#8A0045,#200512);color:#FFF2F8;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:30px;text-align:center}
+.match-ov{position:fixed;inset:0;z-index:70;background:radial-gradient(circle at 50% 40%,#1A1A1A,#000000);color:#FFF8E1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:30px;text-align:center}
 .match-ov h1{color:var(--gold);font-size:clamp(2.2rem,9vw,3.6rem)}
 .match-pair{display:flex;gap:0;align-items:center}
 .match-pair img{width:130px;height:130px}
@@ -204,7 +200,7 @@ footer.site a{color:var(--muted);margin-right:14px}
 .swarm span{position:absolute;font-size:1.6rem;animation:swarm 2.4s ease-out forwards}
 @keyframes swarm{from{transform:translate(0,0) scale(.4);opacity:1}to{transform:translate(var(--dx),var(--dy)) scale(1);opacity:0}}
 .toast-wrap{position:fixed;left:0;right:0;top:calc(12px + env(safe-area-inset-top,0px));z-index:90;display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none}
-.toast{background:var(--ink);color:#FFF2F8;padding:10px 18px;border-radius:999px;box-shadow:var(--shadow);font-size:.9rem;max-width:92vw;animation:tin .25s ease}
+.toast{background:var(--ink);color:#FFF8E1;padding:10px 18px;border-radius:999px;box-shadow:var(--shadow);font-size:.9rem;max-width:92vw;animation:tin .25s ease}
 @keyframes tin{from{transform:translateY(-10px);opacity:0}}
 
 /* Wizard */
@@ -228,17 +224,17 @@ footer.site a{color:var(--muted);margin-right:14px}
 .switch input:checked+i::after{transform:translateX(20px)}
 .tier-card{border:2px solid var(--line);border-radius:var(--r-md);padding:16px;background:var(--surface)}
 .tier-card.cur{border-color:var(--honey)}
-.tier-card.elite{background:linear-gradient(160deg,#6E0A3C,var(--ink));color:#FFF2F8;border-color:var(--gold)}
-.tier-card.elite .muted{color:#F5B0CF}
+.tier-card.elite{background:linear-gradient(160deg,#3A2E00,var(--ink));color:#FFF8E1;border-color:var(--gold)}
+.tier-card.elite .muted{color:#D9C98F}
 .seatbar{height:8px;border-radius:4px;background:rgba(255,255,255,.15);overflow:hidden;margin:6px 0}
 .seatbar i{display:block;height:100%;background:var(--gold)}
 
 /* Admin */
 .adm{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
-.adm-side{background:var(--ink);color:#FFF2F8;padding:18px 12px;position:sticky;top:0;height:100vh;overflow-y:auto}
-.adm-side a{display:block;color:#FFDCEB;text-decoration:none;padding:8px 12px;border-radius:8px;font-size:.92rem}
-.adm-side a.on{background:var(--honey);color:#FFFFFF}
-.adm-side .grp{font-size:.72rem;color:#F08AB8;margin:14px 12px 4px}
+.adm-side{background:var(--ink);color:#FFF8E1;padding:18px 12px;position:sticky;top:0;height:100vh;overflow-y:auto}
+.adm-side a{display:block;color:#FFF0C2;text-decoration:none;padding:8px 12px;border-radius:8px;font-size:.92rem}
+.adm-side a.on{background:var(--honey);color:#111111}
+.adm-side .grp{font-size:.72rem;color:#E6C45A;margin:14px 12px 4px}
 .adm-main{padding:20px 24px 60px;min-width:0}
 .adm-top{display:none}
 .kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:18px}
@@ -260,7 +256,7 @@ table.tbl{width:100%;border-collapse:collapse;font-size:.88rem;min-width:640px}
 @media (max-width:860px){
   .adm{grid-template-columns:1fr}
   .adm-side{display:none}
-  .adm-top{display:flex;gap:8px;align-items:center;padding:10px 14px;background:var(--ink);color:#FFF2F8;position:sticky;top:0;z-index:10}
+  .adm-top{display:flex;gap:8px;align-items:center;padding:10px 14px;background:var(--ink);color:#FFF8E1;position:sticky;top:0;z-index:10}
   .adm-main{padding:14px}
   .grid2{grid-template-columns:1fr}
 }
@@ -271,6 +267,19 @@ table.tbl{width:100%;border-collapse:collapse;font-size:.88rem;min-width:640px}
 }
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 .pw-wrap{position:relative;display:block;width:100%}.pw-wrap .inp{padding-right:52px}.pw-eye{position:absolute;right:4px;top:50%;transform:translateY(-50%);width:44px;height:44px;border:0;background:transparent;color:var(--muted);cursor:pointer;display:grid;place-items:center;border-radius:50%;padding:0}.pw-eye:hover,.pw-eye:focus-visible{color:var(--honey);background:var(--honey-soft);outline:none}.pw-eye svg{width:22px;height:22px}
+.topbar{border-bottom:0;box-shadow:none}.topbar::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:5px;background:repeating-linear-gradient(-45deg,#000 0 10px,#E8B923 10px 20px);pointer-events:none}
+.bee-stripe{height:7px;border-radius:6px;background:repeating-linear-gradient(-45deg,#000 0 10px,#E8B923 10px 20px)}
+.srch-row{display:flex;align-items:center;gap:12px;padding:10px 4px;border-bottom:1px solid var(--line)}.srch-row .grow{min-width:0;cursor:pointer}.srch-row .nm{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dist{display:inline-block;background:var(--honey);color:#111;border-radius:999px;padding:1px 8px;font-size:.78rem;font-weight:600}
+.radar{position:relative;width:180px;height:180px;margin:10px auto 6px;border-radius:50%;background:radial-gradient(circle,var(--honey-soft) 0 30%,transparent 31%),repeating-radial-gradient(circle,transparent 0 28px,rgba(17,17,17,.12) 29px 30px);overflow:hidden}
+.radar::after{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(from 0deg,rgba(255,196,0,.55),transparent 25%);animation:radar 1.6s linear infinite}
+.radar span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:2.4rem;z-index:1}
+@keyframes radar{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.radar::after{animation:none}}
+.shake-tag{background:#111;color:#D4A017;border-radius:999px;padding:1px 8px;font-size:.72rem;font-weight:700}
+.btn-ink,:root .btn-ink{background:#000;color:#E8B923;border:1.5px solid #C9971C}
+.toast{background:#000;color:#FFE27A;border:1px solid #C9971C}
+.bottomnav{border-top:1px solid #4A3A0E}
 </style>
 </head>
 <body>
@@ -353,6 +362,7 @@ const RateLimit = {
    ===================================================================== */
 const DICT = {
 en: {
+  search_name: 'Search by name', search_ph: 'Type a name…', no_results: 'No bees found', distance: 'Distance', any_distance: 'Any distance', km_n: '{n} km', km_lt1: '< 1 km', use_location: 'Use my location', location_updated: 'Location updated (approximate, ~1 km)', geo_denied: 'Location permission was denied. Allow it in your browser settings, or we will use your city.', geo_unsupported: 'This device can’t share location. We’ll use your city.', geo_private: 'Turn on “Share approximate location” in Privacy first.', shake_title: 'Bee Radar', shake_hint: 'Shake your phone (or tap the button) to find bees near you right now.', shake_btn: 'Shake / scan', shake_scanning: 'Scanning the hive around you…', shaking_now: 'Shaking right now', nearby_n: 'Nearby (within {n} km)', shake_none: 'No bees nearby yet. Try again later or widen your filters.', shake_unsupported: 'Shake isn’t supported on this device — use the button.', shake_denied: 'Motion access was not allowed — use the button instead.', shake_ready: 'Shake is on — shake your phone anytime to find bees nearby', city_fallback: 'Using your city center (location off)', already_matched: 'Already matched', liked_already: 'Liked',
   show_pw: 'Show password', hide_pw: 'Hide password',
   loading: 'Opening the hive…', cloud_error: 'Could not connect to the server', check_email: 'We sent a confirmation link to your email. Open it, then log in.', sms_not_ready: 'Phone login isn’t switched on yet. Please use email for now.', oauth_not_ready: '{p} login isn’t switched on yet. Please use email for now.', pay_not_connected: 'Online payment isn’t connected yet. Please contact Club Bee support to upgrade.',
   advanced: 'Advanced', profile_complete: 'Profile completeness', total: 'Total', pay_method: 'Payment method', card_tok: 'Card (tokenised)', unblock: 'Unblock', download: 'Download',
@@ -422,7 +432,7 @@ en: {
   my_profile: 'My profile', edit_profile: 'Edit profile', verification: 'Verification', v_phone: 'Phone verified', v_identity: 'Identity verified', v_profile: 'Profile verified',
   request_verify: 'Request', v_pending: 'Under review', v_done: 'Verified', v_need_phone: 'Log in with phone OTP to verify',
   privacy_h: 'Privacy', p_profile_vis: 'Show my profile in Discover', p_online: 'Show when I’m online', p_last_active: 'Show last active', p_search: 'Appear in search',
-  p_msg_requests: 'Allow message requests', p_location: 'Show my city', data_h: 'Your data', download_data: 'Download my data', deactivate: 'Deactivate account', delete_account: 'Delete account',
+  p_msg_requests: 'Allow message requests', p_location: 'Share approximate location (city & distance)', data_h: 'Your data', download_data: 'Download my data', deactivate: 'Deactivate account', delete_account: 'Delete account',
   deactivate_confirm: 'Deactivate? Your profile will be hidden until you log in again.', delete_confirm: 'Permanently delete your account and data? This can’t be undone.', type_delete: 'Type DELETE to confirm',
   language: 'Language', theme: 'Theme', th_auto: 'Auto', th_light: 'Light', th_dark: 'Dark', legal: 'Legal & safety', settings: 'Settings',
   membership: 'Membership', credits: 'Honey Credits', referral: 'Invite friends', your_code: 'Your referral code', copy: 'Copy', copied: 'Copied',
@@ -442,6 +452,7 @@ en: {
   demo_reset: 'Reset demo data', demo_note: 'Prototype mode: data stays on this device (mock database).'
 },
 th: {
+  search_name: 'ค้นหาจากชื่อ', search_ph: 'พิมพ์ชื่อ…', no_results: 'ไม่พบผึ้งชื่อนี้', distance: 'ระยะห่าง', any_distance: 'ทุกระยะ', km_n: '{n} กม.', km_lt1: '< 1 กม.', use_location: 'ใช้ตำแหน่งปัจจุบัน', location_updated: 'อัปเดตตำแหน่งแล้ว (โดยประมาณ ~1 กม.)', geo_denied: 'ไม่ได้รับอนุญาตให้ใช้ตำแหน่ง อนุญาตได้ในการตั้งค่าเบราว์เซอร์ หรือระบบจะใช้เมืองของคุณแทน', geo_unsupported: 'อุปกรณ์นี้แชร์ตำแหน่งไม่ได้ ระบบจะใช้เมืองของคุณแทน', geo_private: 'เปิด “แชร์ตำแหน่งโดยประมาณ” ในความเป็นส่วนตัวก่อน', shake_title: 'เรดาร์ผึ้ง', shake_hint: 'เขย่ามือถือ (หรือกดปุ่ม) เพื่อหาผึ้งที่อยู่ใกล้คุณตอนนี้', shake_btn: 'เขย่า / สแกน', shake_scanning: 'กำลังสแกนรังผึ้งรอบตัวคุณ…', shaking_now: 'เขย่าพร้อมกันตอนนี้', nearby_n: 'ใกล้คุณ (ภายใน {n} กม.)', shake_none: 'ยังไม่มีผึ้งใกล้ๆ ลองใหม่อีกครั้ง หรือขยายตัวกรอง', shake_unsupported: 'อุปกรณ์นี้ไม่รองรับการเขย่า ใช้ปุ่มแทนได้', shake_denied: 'ไม่ได้รับอนุญาตใช้เซนเซอร์ ใช้ปุ่มแทนได้', shake_ready: 'เปิดโหมดเขย่าแล้ว เขย่ามือถือเมื่อไหร่ก็หาผึ้งใกล้ตัวได้', city_fallback: 'ใช้จุดกลางเมืองของคุณ (ไม่ได้เปิดตำแหน่ง)', already_matched: 'แมตช์กันแล้ว', liked_already: 'ถูกใจแล้ว',
   show_pw: 'แสดงรหัสผ่าน', hide_pw: 'ซ่อนรหัสผ่าน',
   loading: 'กำลังเปิดรังผึ้ง…', cloud_error: 'เชื่อมต่อเซิร์ฟเวอร์ไม่สำเร็จ', check_email: 'เราส่งลิงก์ยืนยันไปที่อีเมลของคุณแล้ว กดยืนยันแล้วกลับมาเข้าสู่ระบบ', sms_not_ready: 'ยังไม่ได้เปิดการเข้าสู่ระบบด้วยเบอร์โทร กรุณาใช้อีเมลก่อน', oauth_not_ready: 'ยังไม่ได้เปิดการเข้าสู่ระบบด้วย {p} กรุณาใช้อีเมลก่อน', pay_not_connected: 'ยังไม่ได้เชื่อมระบบชำระเงินออนไลน์ กรุณาติดต่อทีม Club Bee เพื่ออัปเกรด',
   advanced: 'ค้นหาขั้นสูง', profile_complete: 'ความสมบูรณ์ของโปรไฟล์', total: 'ยอดรวม', pay_method: 'วิธีชำระเงิน', card_tok: 'บัตร (Tokenised)', unblock: 'เลิกบล็อก', download: 'ดาวน์โหลด',
@@ -511,7 +522,7 @@ th: {
   my_profile: 'โปรไฟล์ของฉัน', edit_profile: 'แก้ไขโปรไฟล์', verification: 'การยืนยันตัวตน', v_phone: 'ยืนยันเบอร์โทร', v_identity: 'ยืนยันตัวตน', v_profile: 'ยืนยันโปรไฟล์',
   request_verify: 'ขอยืนยัน', v_pending: 'กำลังตรวจสอบ', v_done: 'ยืนยันแล้ว', v_need_phone: 'เข้าสู่ระบบด้วย OTP เพื่อยืนยันเบอร์',
   privacy_h: 'ความเป็นส่วนตัว', p_profile_vis: 'แสดงโปรไฟล์ในหน้าค้นพบ', p_online: 'แสดงสถานะออนไลน์', p_last_active: 'แสดงเวลาใช้งานล่าสุด', p_search: 'แสดงในการค้นหา',
-  p_msg_requests: 'รับคำขอข้อความ', p_location: 'แสดงเมืองของฉัน', data_h: 'ข้อมูลของคุณ', download_data: 'ดาวน์โหลดข้อมูลของฉัน', deactivate: 'ปิดบัญชีชั่วคราว', delete_account: 'ลบบัญชี',
+  p_msg_requests: 'รับคำขอข้อความ', p_location: 'แชร์ตำแหน่งโดยประมาณ (เมืองและระยะห่าง)', data_h: 'ข้อมูลของคุณ', download_data: 'ดาวน์โหลดข้อมูลของฉัน', deactivate: 'ปิดบัญชีชั่วคราว', delete_account: 'ลบบัญชี',
   deactivate_confirm: 'ปิดบัญชีชั่วคราว? โปรไฟล์จะถูกซ่อนจนกว่าคุณจะเข้าสู่ระบบอีกครั้ง', delete_confirm: 'ลบบัญชีและข้อมูลถาวร? ไม่สามารถกู้คืนได้', type_delete: 'พิมพ์ DELETE เพื่อยืนยัน',
   language: 'ภาษา', theme: 'ธีม', th_auto: 'อัตโนมัติ', th_light: 'สว่าง', th_dark: 'มืด', legal: 'กฎหมายและความปลอดภัย', settings: 'ตั้งค่า',
   membership: 'สมาชิก', credits: 'Honey Credits', referral: 'ชวนเพื่อน', your_code: 'โค้ดแนะนำของคุณ', copy: 'คัดลอก', copied: 'คัดลอกแล้ว',
@@ -531,6 +542,7 @@ th: {
   demo_reset: 'รีเซ็ตข้อมูลตัวอย่าง', demo_note: 'โหมดต้นแบบ: ข้อมูลเก็บบนอุปกรณ์นี้ (ฐานข้อมูลจำลอง)'
 },
 zh: {
+  search_name: '按名字搜索', search_ph: '输入名字…', no_results: '没有找到', distance: '距离', any_distance: '不限距离', km_n: '{n} 公里', km_lt1: '< 1 公里', use_location: '使用当前位置', location_updated: '位置已更新（约 1 公里精度）', geo_denied: '未获得位置权限。可在浏览器设置中允许，否则将使用你的城市。', geo_unsupported: '此设备无法共享位置，将使用你的城市。', geo_private: '请先在隐私设置中开启“共享大致位置”。', shake_title: '蜜蜂雷达', shake_hint: '摇一摇手机（或点按钮）寻找附近的蜜蜂。', shake_btn: '摇一摇 / 扫描', shake_scanning: '正在扫描你附近的蜂巢…', shaking_now: '正在同时摇一摇', nearby_n: '附近（{n} 公里内）', shake_none: '附近暂时没有蜜蜂，稍后再试或放宽筛选。', shake_unsupported: '此设备不支持摇一摇，请使用按钮。', shake_denied: '未允许动作感应，请使用按钮。', shake_ready: '摇一摇已开启，随时摇手机寻找附近的蜜蜂', city_fallback: '使用城市中心（未开启定位）', already_matched: '已配对', liked_already: '已喜欢',
   show_pw: '显示密码', hide_pw: '隐藏密码',
   loading: '正在打开蜂巢…', cloud_error: '无法连接服务器', check_email: '确认链接已发送到你的邮箱，确认后再登录。', sms_not_ready: '手机登录尚未开通，请先使用邮箱。', oauth_not_ready: '{p} 登录尚未开通，请先使用邮箱。', pay_not_connected: '在线支付尚未接入，请联系 Club Bee 客服升级。',
   advanced: '高级筛选', profile_complete: '资料完整度', total: '合计', pay_method: '支付方式', card_tok: '银行卡（令牌化）', unblock: '取消屏蔽', download: '下载',
@@ -547,7 +559,7 @@ zh: {
   date_from: '{name} 邀请了你', date_to: '你邀请了 {name}', report_detail: '发生了什么？（选填）',
   block_confirm: '屏蔽 {name}？对方将无法看到你或给你发消息。', blocked_ok: '已屏蔽 {name}', report_block_too: '同时屏蔽此人',
   v_phone: '手机已验证', v_identity: '身份已验证', v_profile: '资料已验证', request_verify: '申请', v_pending: '审核中', v_done: '已验证', v_need_phone: '使用手机验证码登录即可验证',
-  p_profile_vis: '在发现页显示我的资料', p_online: '显示我的在线状态', p_last_active: '显示最近活跃时间', p_search: '出现在搜索中', p_msg_requests: '允许消息请求', p_location: '显示我的城市',
+  p_profile_vis: '在发现页显示我的资料', p_online: '显示我的在线状态', p_last_active: '显示最近活跃时间', p_search: '出现在搜索中', p_msg_requests: '允许消息请求', p_location: '共享大致位置（城市和距离）',
   data_h: '你的数据', deactivate_confirm: '确定停用？在你再次登录前，资料将被隐藏。', delete_confirm: '永久删除账户和数据？此操作无法撤销。', type_delete: '输入 DELETE 以确认',
   th_auto: '自动', th_light: '浅色', th_dark: '深色', ref_desc: '分享你的邀请码。朋友使用它加入后，你们都能获得奖励。', ref_count: '已有 {n} 位朋友加入',
   current_plan: '当前方案', choose_plan: '选择', seats: '{a} / {b} 席位', seats_full: '已满', waitlist_join: '加入候补名单', waitlisted: '你已在候补名单中',
@@ -667,16 +679,16 @@ const Flags = { on(k) { const f = DB.find('feature_flags', x => x.key === k); re
    ===================================================================== */
 const Brand = {
   mark(size = 36, variant = 'light') {
-    const cell = variant === 'dark' ? '#FFF2F8' : '#2B0418';
-    const body = '#D1005F', stripe = variant === 'dark' ? '#2B0418' : '#2B0418';
+    const cell = variant === 'dark' ? '#FFF8E1' : '#111111';
+    const body = '#D4A017', stripe = variant === 'dark' ? '#111111' : '#111111';
     return `<svg width="${size}" height="${size}" viewBox="0 0 64 64" aria-hidden="true">
       <path d="M18 4h28l16 28-16 28H18L2 32z" fill="${cell}"/>
-      <path d="M17 42c-6-5-5-13 2-13 4 0 5 3 6 5" fill="none" stroke="#D1005F" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="1 4.2"/>
-      <ellipse cx="28" cy="22" rx="7" ry="9" fill="#FFF2F8" opacity=".9" transform="rotate(-25 28 22)"/>
-      <ellipse cx="39" cy="21" rx="7" ry="9" fill="#FFF2F8" opacity=".75" transform="rotate(25 39 21)"/>
+      <path d="M17 42c-6-5-5-13 2-13 4 0 5 3 6 5" fill="none" stroke="#D4A017" stroke-width="2.4" stroke-linecap="round" stroke-dasharray="1 4.2"/>
+      <ellipse cx="28" cy="22" rx="7" ry="9" fill="#FFF8E1" opacity=".9" transform="rotate(-25 28 22)"/>
+      <ellipse cx="39" cy="21" rx="7" ry="9" fill="#FFF8E1" opacity=".75" transform="rotate(25 39 21)"/>
       <ellipse cx="34" cy="36" rx="11" ry="9" fill="${body}"/>
       <path d="M29 28.5v15M35 27.2v17.6" stroke="${stripe}" stroke-width="3"/>
-      <circle cx="43" cy="33.5" r="1.6" fill="#2B0418"/>
+      <circle cx="43" cy="33.5" r="1.6" fill="#111111"/>
       <path d="M46 29c2-3 4-4 6-4M45 28c1-3 2-5 4-6" stroke="${body}" stroke-width="1.6" fill="none" stroke-linecap="round"/>
     </svg>`;
   },
@@ -684,7 +696,7 @@ const Brand = {
     return `<span class="logo">${this.mark(34, variant)}<span class="wm">CLUB BEE<small>ผึ้งน้อยรุมล้อม</small></span></span>`;
   },
   appIcon(size = 96) {
-    return `<svg width="${size}" height="${size}" viewBox="0 0 96 96" aria-hidden="true"><rect width="96" height="96" rx="22" fill="#2B0418"/>
+    return `<svg width="${size}" height="${size}" viewBox="0 0 96 96" aria-hidden="true"><rect width="96" height="96" rx="22" fill="#111111"/>
       <g transform="translate(16 16)">${this.mark(64, 'dark').replace(/<svg[^>]*>|<\/svg>/g, '')}</g></svg>`;
   }
 };
@@ -693,11 +705,11 @@ const Brand = {
    AVATARS — original illustrated portraits (no real people's photos)
    ===================================================================== */
 const SKINS = ['#F5D0B0', '#E8B48F', '#D19A70', '#B37A52', '#8C5A3A', '#F1C9A5'];
-const HAIRS = ['#2B0418', '#3B2414', '#B07A00', '#A0522D', '#2B2B2B', '#C98C4A', '#5B3A7A'];
-const BGS = [['#FFE27A', '#D1005F'], ['#FFC8A2', '#F28A5B'], ['#BFE3C8', '#6FB889'], ['#C9D9F5', '#7FA2DD'], ['#F3C6D8', '#D9829F'], ['#FFD6E8', '#F06BA8'], ['#D8CCF0', '#9C86D6']];
+const HAIRS = ['#111111', '#3B2414', '#B07A00', '#A0522D', '#2B2B2B', '#C98C4A', '#5B3A7A'];
+const BGS = [['#FFE27A', '#D4A017'], ['#FFC8A2', '#F28A5B'], ['#BFE3C8', '#6FB889'], ['#C9D9F5', '#7FA2DD'], ['#F3C6D8', '#D9829F'], ['#FFEBA8', '#F0B400'], ['#D8CCF0', '#9C86D6']];
 function avatarSVG(a) {
   const [b1, b2] = BGS[a.bg % BGS.length], skin = SKINS[a.skin % SKINS.length], hair = HAIRS[a.hair % HAIRS.length];
-  const shirt = ['#2B0418', '#FFEEF5', '#B07A00', '#3C7BD1', '#E0475F', '#3E8E5B'][a.shirt % 6];
+  const shirt = ['#111111', '#FFF9E6', '#B07A00', '#3C7BD1', '#E0475F', '#3E8E5B'][a.shirt % 6];
   const gid = 'g' + a.bg + a.skin + a.hair + a.style;
   let hairBack = '', hairFront = '';
   if (a.style === 0) { hairFront = `<path d="M118 150c0-42 26-62 62-62s62 20 62 62c-10-22-30-34-62-34s-52 12-62 34z" fill="${hair}"/>`; }
@@ -705,7 +717,7 @@ function avatarSVG(a) {
   if (a.style === 2) { hairFront = `<circle cx="180" cy="74" r="24" fill="${hair}"/><path d="M118 154c0-40 26-60 62-60s62 20 62 60c-12-20-32-30-62-30s-50 10-62 30z" fill="${hair}"/>`; }
   if (a.style === 3) { hairFront = `<path d="M114 160c-6-50 24-78 66-78 40 0 70 24 66 70-8-18-18-28-30-32-16 14-52 20-102 40z" fill="${hair}"/>`; }
   if (a.style === 4) { hairBack = `<path d="M112 160c0-50 28-78 68-78s68 28 68 78v44c0 10-12 12-16 4v-40h-104v40c-4 8-16 6-16-4z" fill="${hair}"/>`; hairFront = `<path d="M118 150c10-34 34-50 62-50s52 16 62 50c-24-16-44-10-62-22-18 12-38 6-62 22z" fill="${hair}"/>`; }
-  const glasses = a.glasses ? `<g fill="none" stroke="#2B0418" stroke-width="3"><circle cx="160" cy="168" r="13"/><circle cx="200" cy="168" r="13"/><path d="M173 168h14"/></g>` : '';
+  const glasses = a.glasses ? `<g fill="none" stroke="#111111" stroke-width="3"><circle cx="160" cy="168" r="13"/><circle cx="200" cy="168" r="13"/><path d="M173 168h14"/></g>` : '';
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 450"><defs><linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${b1}"/><stop offset="1" stop-color="${b2}"/></linearGradient></defs>
     <rect width="360" height="450" fill="url(#${gid})"/>
     <path d="M40 60h60l30 52-30 52H40L10 112z" fill="#fff" opacity=".12"/><path d="M270 300h50l25 43-25 43h-50l-25-43z" fill="#fff" opacity=".12"/>
@@ -714,7 +726,7 @@ function avatarSVG(a) {
     <rect x="160" y="230" width="40" height="60" rx="18" fill="${skin}"/>
     <ellipse cx="180" cy="170" rx="62" ry="74" fill="${skin}"/>
     ${hairFront}
-    <circle cx="160" cy="170" r="5" fill="#2B0418"/><circle cx="200" cy="170" r="5" fill="#2B0418"/>
+    <circle cx="160" cy="170" r="5" fill="#111111"/><circle cx="200" cy="170" r="5" fill="#111111"/>
     <path d="M162 204c10 10 26 10 36 0" stroke="#7A3B2E" stroke-width="4" fill="none" stroke-linecap="round"/>
     <circle cx="145" cy="192" r="9" fill="#E0475F" opacity=".18"/><circle cx="215" cy="192" r="9" fill="#E0475F" opacity=".18"/>
     ${glasses}</svg>`;
@@ -1028,11 +1040,12 @@ const Seed = {
       const ints = [...interestKeys].sort(() => Math.random() - .5).slice(0, rnd(3, 6));
       const langs = ['th', ...(Math.random() < .6 ? ['en'] : []), ...(Math.random() < .2 ? ['zh'] : [])];
       const vPhone = Math.random() < .8, vId = Math.random() < .45, vProf = Math.random() < .5;
-      D.insert('profiles', { user_id: u.id, name: name + ' (demo)', display_name: name, birthday: bday, gender, pref_gender: gender === 'female' ? (Math.random() < .9 ? 'male' : 'everyone') : (Math.random() < .9 ? 'female' : 'everyone'),
+      const pr_ = D.insert('profiles', { user_id: u.id, name: name + ' (demo)', display_name: name, birthday: bday, gender, pref_gender: gender === 'female' ? (Math.random() < .9 ? 'male' : 'everyone') : (Math.random() < .9 ? 'female' : 'everyone'),
         city: i < 20 ? 'bkk' : pick(cityKeys), languages: langs, goal: pick(goals), interests: ints, about: pick(Math.random() < .7 ? ABOUTS.th : ABOUTS.en),
         lifestyle: { drink: pick(['never', 'sometimes', 'often']), smoke: pick(['never', 'never', 'sometimes']), workout: pick(['never', 'sometimes', 'often']) },
         age_min: 20, age_max: 45, avatar: { bg: rnd(0, 6), skin: rnd(0, 5), hair: rnd(0, 6), style: gender === 'female' ? pick([1, 2, 4, 1]) : pick([0, 3, 0]), shirt: rnd(0, 5), glasses: Math.random() < .2 },
         verification: { phone: vPhone, identity: vId, profile: vProf }, privacy: { visible: true, online: true, last_active: true, search: true, msg_requests: true, location: true }, completion: rnd(70, 100) }, true);
+      { const c = Geo.CITY[pr_.city]; if (c) pr_.geo = { lat: +(c[0] + (Math.random() - .5) * .22).toFixed(2), lng: +(c[1] + (Math.random() - .5) * .22).toFixed(2), at: now() }; }
       D.insert('memberships', { user_id: u.id, plan_code: tier, status: 'active', started_at: daysAgo(rnd(1, 25)), expires_at: tier === 'FREE' ? null : daysAgo(-rnd(5, 30)) }, true);
       D.insert('credits', { user_id: u.id, balance: rnd(0, 120) }, true);
       demo.push(u);
@@ -1269,9 +1282,10 @@ const Match = {
     if (f.verified) list = list.filter(p => p.verification?.identity || p.verification?.profile);
     if (f.interest) list = list.filter(p => (p.interests || []).includes(f.interest));
     if (f.lang) list = list.filter(p => (p.languages || []).includes(f.lang));
+    if (f.max_km) list = list.filter(p => { const d = Geo.dist(me, p); return d != null && d <= f.max_km; });
     const prio = Flags.on('ENABLE_PREMIUM');
     return list.map(p => ({ p, score: this.compat(me, p), boost: Flags.on('ENABLE_BOOST') && !!this.boostActive(p.user_id), prio: prio && Members.perm(p.user_id, 'priority_matching') }))
-      .sort((x, y) => (y.boost - x.boost) || (y.prio - x.prio) || (y.score - x.score + (Math.random() - .5) * 12));
+      .sort((x, y) => (y.boost - x.boost) || (y.prio - x.prio) || (f.max_km ? (Geo.dist(me, x.p) - Geo.dist(me, y.p)) : 0) || (y.score - x.score + (Math.random() - .5) * 12));
   },
   matchBetween(a, b) { return DB.find('matches', m => ((m.user_a === a && m.user_b === b) || (m.user_a === b && m.user_b === a)) && !m.unmatched); },
   act(user_id, target, type) {
@@ -1537,6 +1551,108 @@ const Moderation = {
     const cs = DB.get('moderation_cases', caseId); if (!cs?.conversation_id) throw new Error('This case has no linked conversation.');
     Audit.log(emergency ? 'EMERGENCY_CHAT_ACCESS' : 'CHAT_MODERATION_VIEW', cs.conversation_id, { moderator_id: Session.admin.id, conversation_id: cs.conversation_id, case_id: cs.case_no, reason, access_time: now(), scope: 'last 30 messages' });
     return Chat.messages(cs.conversation_id).slice(-30);
+  }
+};
+
+
+/* =====================================================================
+   GEO — approximate location (rounded to ~1 km), distance, name search,
+   and the "shake to find bees nearby" radar.
+   ===================================================================== */
+const Geo = {
+  CITY: { bkk: [13.7563, 100.5018], cnx: [18.7883, 98.9853], hkt: [7.8804, 98.3923], kkc: [16.4419, 102.836], pty: [12.9236, 100.8825], hdy: [7.0086, 100.4747], kor: [14.9799, 102.0978], ubn: [15.2287, 104.8564] },
+  shares(p) { return p && p.privacy?.location !== false; },
+  of(p) {
+    if (!p) return null;
+    if (p.geo && typeof p.geo.lat === 'number') return p.geo;
+    const c = this.CITY[p.city]; return c ? { lat: c[0], lng: c[1], approx: true } : null;
+  },
+  km(a, b) {
+    const R = 6371, r = x => x * Math.PI / 180;
+    const dLat = r(b.lat - a.lat), dLng = r(b.lng - a.lng);
+    const h = Math.sin(dLat / 2) ** 2 + Math.cos(r(a.lat)) * Math.cos(r(b.lat)) * Math.sin(dLng / 2) ** 2;
+    return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
+  },
+  dist(me, p) { const a = this.of(me), b = this.of(p); if (!a || !b || !this.shares(p)) return null; return this.km(a, b); },
+  label(d) { if (d == null) return ''; return d < 1 ? t('km_lt1') : t('km_n', { n: d < 10 ? d.toFixed(1).replace(/\.0$/, '') : Math.round(d) }); },
+  locate() {
+    return new Promise((res, rej) => {
+      if (!navigator.geolocation) return rej(new Error(t('geo_unsupported')));
+      const timer = setTimeout(() => rej(new Error(t('geo_denied'))), 15000);   // prompt ignored / no answer
+      navigator.geolocation.getCurrentPosition(
+        pos => { clearTimeout(timer); res({ lat: +pos.coords.latitude.toFixed(2), lng: +pos.coords.longitude.toFixed(2), at: now() }); },
+        () => { clearTimeout(timer); rej(new Error(t('geo_denied'))); },
+        { enableHighAccuracy: false, timeout: 12000, maximumAge: 300000 });
+    });
+  },
+  async update(user_id) {
+    const p = Profiles.of(user_id);
+    if (!this.shares(p)) throw new Error(t('geo_private'));
+    const g = await this.locate();
+    Profiles.save(user_id, { geo: g });
+    return g;
+  }
+};
+
+const Search = {
+  byName(user_id, q) {
+    q = String(q || '').trim().toLowerCase(); if (q.length < 1) return [];
+    const me = Profiles.of(user_id);
+    return DB.where('profiles', p => p.user_id !== user_id && Profiles.isVisible(p) && p.privacy?.search !== false && !Match.blocked(user_id, p.user_id)
+        && String(p.display_name || '').toLowerCase().includes(q))
+      .map(p => ({ p, d: Geo.dist(me, p), starts: String(p.display_name).toLowerCase().startsWith(q) }))
+      .sort((a, b) => (b.starts - a.starts) || ((a.d ?? 1e9) - (b.d ?? 1e9)))
+      .slice(0, 30);
+  }
+};
+
+const Radar = {
+  WINDOW_MS: 3 * 60 * 1000,
+  async scan(user_id) {
+    let located = true;
+    try { await Geo.update(user_id); } catch (e) { located = false; }
+    Profiles.save(user_id, { shake_at: now() });
+    if (Cloud.on) { await Cloud.enqueue(() => Promise.resolve()); await Promise.all([Cloud.pullTable('profiles'), Cloud.pullTable('users')]); }
+    const me = Profiles.of(user_id);
+    if (!Cloud.on) this.demoShakers(user_id, me);
+    const wantG = me.pref_gender;
+    const all = DB.where('profiles', p => p.user_id !== user_id && Profiles.isVisible(p) && !Match.blocked(user_id, p.user_id)
+        && (wantG === 'everyone' || !wantG || p.gender === wantG))
+      .map(p => ({ p, d: Geo.dist(me, p), shook: p.shake_at && (Date.now() - new Date(p.shake_at)) < this.WINDOW_MS }))
+      .filter(x => x.d != null);
+    const shaking = all.filter(x => x.shook && x.d <= 50).sort((a, b) => a.d - b.d);
+    let radius = 10, near = all.filter(x => !x.shook && x.d <= radius);
+    if (near.length < 5) { radius = 50; near = all.filter(x => !x.shook && x.d <= radius); }
+    near.sort((a, b) => a.d - b.d);
+    return { located, shaking, near: near.slice(0, 20), radius };
+  },
+  demoShakers(user_id, me) {
+    const g = Geo.of(me); if (!g) return;
+    const cands = DB.where('profiles', p => p.user_id !== user_id && Profiles.isVisible(p) && (me.pref_gender === 'everyone' || p.gender === me.pref_gender)).sort(() => Math.random() - .5).slice(0, rnd(1, 3));
+    cands.forEach(p => { p.geo = { lat: +(g.lat + (Math.random() - .5) * .04).toFixed(2), lng: +(g.lng + (Math.random() - .5) * .04).toFixed(2), at: now() }; p.shake_at = now(); });
+    DB.save();
+  }
+};
+
+const Shake = {
+  on: false, hits: [], lastFire: 0, lastVec: null,
+  supported() { return typeof window !== 'undefined' && 'DeviceMotionEvent' in window; },
+  needsPermission() { return this.supported() && typeof DeviceMotionEvent.requestPermission === 'function'; },
+  async enable() {
+    if (!this.supported()) throw new Error(t('shake_unsupported'));
+    if (this.needsPermission()) { const r = await DeviceMotionEvent.requestPermission(); if (r !== 'granted') throw new Error(t('shake_denied')); }
+    if (!this.on) { window.addEventListener('devicemotion', this.handler, { passive: true }); this.on = true; }
+  },
+  handler(e) {
+    const S = Shake; const a = e.accelerationIncludingGravity || e.acceleration; if (!a || a.x == null) return;
+    const v = [a.x || 0, a.y || 0, a.z || 0];
+    if (S.lastVec) {
+      const d = Math.hypot(v[0] - S.lastVec[0], v[1] - S.lastVec[1], v[2] - S.lastVec[2]);
+      const nowT = Date.now();
+      if (d > 22) { S.hits = S.hits.filter(x => nowT - x < 900); S.hits.push(nowT); }
+      if (S.hits.length >= 3 && nowT - S.lastFire > 5000) { S.hits = []; S.lastFire = nowT; document.dispatchEvent(new CustomEvent('clubbee:shake')); }
+    }
+    S.lastVec = v;
   }
 };
 
@@ -1860,19 +1976,23 @@ function viewDiscover() {
       <span class="stamp like">LIKE</span><span class="stamp nope">PASS</span>
       <div class="info" data-act="openProfile" data-uid="${p.user_id}" style="cursor:pointer">
         <h2>${esc(p.display_name)}, ${Profiles.age(p)} ${vBadge(p)}</h2>
-        <div class="small" style="opacity:.9">📍 ${p.privacy?.location === false ? '—' : vt('cities', p.city)} · ${goalLabel(p.goal)}</div>
-        <div style="margin-top:6px">${(p.interests || []).slice(0, 4).map(k => `<span class="tag" style="background:rgba(250,243,255,.18);color:#FFF2F8">${vt('interests', k)}</span>`).join('')}</div>
+        <div class="small" style="opacity:.9">📍 ${p.privacy?.location === false ? '—' : vt('cities', p.city)}${(() => { const d = Geo.dist(Session.profile, p); return d != null ? ' · <b>' + Geo.label(d) + '</b>' : ''; })()} · ${goalLabel(p.goal)}</div>
+        <div style="margin-top:6px">${(p.interests || []).slice(0, 4).map(k => `<span class="tag" style="background:rgba(250,243,255,.18);color:#FFF8E1">${vt('interests', k)}</span>`).join('')}</div>
       </div></article>`;
   };
   const inner = `
-    <div class="row between"><h2 style="margin:0">🐝 ${t('nav_discover')}</h2><div class="row">
-      ${Flags.on('ENABLE_BOOST') ? `<button class="btn btn-ghost btn-sm" data-act="boostSheet">⚡ ${boost ? fmtTime(boost.ends_at) : t('boost')}</button>` : ''}
-      <button class="btn btn-ghost btn-sm" data-act="filters">⚙︎ ${t('filters')}</button></div></div>
+    <div class="row between"><h2 style="margin:0">🐝 ${t('nav_discover')}</h2><div class="row" style="gap:6px">
+      ${Flags.on('ENABLE_BOOST') ? `<button class="btn btn-ghost btn-sm" data-act="boostSheet" aria-label="${t('boost')}">⚡${boost ? ' ' + fmtTime(boost.ends_at) : ''}</button>` : ''}
+      <button class="btn btn-ghost btn-sm" data-act="nameSearch" aria-label="${t('search_name')}">🔍</button>
+      <button class="btn btn-ghost btn-sm" data-act="shakeGo" aria-label="${t('shake_title')}">📳</button>
+      <button class="btn btn-ghost btn-sm" data-act="filters" aria-label="${t('filters')}">⚙︎${DiscoverState.filters.max_km ? ' ' + t('km_n', { n: DiscoverState.filters.max_km }) : ''}</button></div></div>
+    <div class="bee-stripe" style="margin:10px 0 2px"></div>
     <div class="deck" id="deck">
       <span class="bee-ambient" style="left:4%;top:-6px">🐝</span><span class="bee-ambient" style="right:6%;top:40%;animation-delay:-4s">🐝</span>
       ${top.length ? top.map(card).join('') : `<div class="panel center" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center">
         <div style="font-size:3rem">🐝</div><h2>${t('no_more_h')}</h2><p class="muted">${t('no_more_p')}</p>
-        <button class="btn btn-honey" data-act="widen">${t('discover_more')}</button></div>`}
+        <button class="btn btn-honey" data-act="widen">${t('discover_more')}</button>
+        <div class="row" style="margin-top:10px;gap:8px"><button class="btn btn-ghost btn-sm" data-act="nameSearch">🔍 ${t('search_name')}</button><button class="btn btn-ghost btn-sm" data-act="shakeGo">📳 ${t('shake_btn')}</button></div></div>`}
     </div>
     ${top.length ? `<div class="actions">
       <button class="act sm" aria-label="${t('report')}" data-act="cardReport">🚩</button>
@@ -1907,13 +2027,15 @@ function showMatch(other, m) {
   const bees = Array.from({ length: 14 }, (_, i) => `<span style="left:50%;top:42%;--dx:${Math.cos(i / 14 * 6.28) * 220}px;--dy:${Math.sin(i / 14 * 6.28) * 220}px;animation-delay:${i * 40}ms">${i % 3 ? '🐝' : '❤️'}</span>`).join('');
   ov.innerHTML = `<div class="swarm" aria-hidden="true">${bees}</div><h1>${t('its_match')}</h1><p>${t('match_sub', { name: esc(op.display_name) })}</p>
     <div class="match-pair"><img class="hex l" src="${photoOf(me)}" alt=""><img class="hex r" src="${photoOf(op)}" alt=""></div>
-    <div class="col" style="width:100%;max-width:320px"><button class="btn btn-honey" data-act="matchChat" data-mid="${m.id}">💬 ${t('send_msg')}</button><button class="btn btn-ghost" style="color:#FFF2F8;border-color:#a81a5a" data-act="matchClose">${t('keep_swiping')}</button></div>`;
+    <div class="col" style="width:100%;max-width:320px"><button class="btn btn-honey" data-act="matchChat" data-mid="${m.id}">💬 ${t('send_msg')}</button><button class="btn btn-ghost" style="color:#FFF8E1;border-color:#6b5a00" data-act="matchClose">${t('keep_swiping')}</button></div>`;
   document.body.appendChild(ov);
 }
 function filtersSheet() {
   const f = DiscoverState.filters, adv = Members.perm(Session.user.id, 'advanced_search');
   sheet(`<h2>⚙︎ ${t('filters')}</h2><form class="col" data-form="filters">
     <label class="f">${t('city')}<select class="inp" name="city"><option value="">—</option>${Object.keys(VOCAB.cities).map(k => `<option value="${k}" ${f.city === k ? 'selected' : ''}>${vt('cities', k)}</option>`).join('')}</select></label>
+    <label class="f">📍 ${t('distance')}<select class="inp" name="max_km"><option value="">${t('any_distance')}</option>${[2, 5, 10, 25, 50, 100].map(k => `<option value="${k}" ${+f.max_km === k ? 'selected' : ''}>≤ ${t('km_n', { n: k })}</option>`).join('')}</select></label>
+    <div class="row between small"><span class="muted">${Session.profile?.geo ? '✓ ' + t('location_updated').split('(')[0] + '· ' + relTime(Session.profile.geo.at) : t('city_fallback')}</span><button type="button" class="btn btn-ghost btn-sm" data-act="geoUpdate">📍 ${t('use_location')}</button></div>
     <label class="f">${t('goal')}<select class="inp" name="goal"><option value="">—</option>${['serious', 'dating', 'friends', 'open'].map(g => `<option value="${g}" ${f.goal === g ? 'selected' : ''}>${goalLabel(g)}</option>`).join('')}</select></label>
     <div class="row"><label class="f grow">${t('age_range')} min<input class="inp" type="number" name="age_min" min="18" max="80" value="${f.age_min || ''}"></label><label class="f grow">max<input class="inp" type="number" name="age_max" min="18" max="99" value="${f.age_max || ''}"></label></div>
     <fieldset class="col" style="border:1px dashed var(--line);border-radius:12px;padding:12px" ${adv ? '' : 'disabled'}>
@@ -1937,7 +2059,8 @@ function profileSheet(user_id, ctx = {}) {
   const photos = DB.where('photos', x => x.user_id === user_id);
   sheet(`<div class="p-hero"><img src="${photoOf(p)}" alt=""></div>
     <div class="row between" style="margin-top:12px"><h2 style="margin:0">${esc(p.display_name)}, ${Profiles.age(p)} ${vBadge(p)}</h2>${tierBadge(user_id)}</div>
-    <p class="muted">📍 ${p.privacy?.location === false ? '—' : vt('cities', p.city)} · ${t('compat')} ${Match.compat(me, p)}%</p>
+    <p class="muted">📍 ${p.privacy?.location === false ? '—' : vt('cities', p.city)}${(() => { const d = Geo.dist(me, p); return d != null ? ' · <span class="dist">' + Geo.label(d) + '</span>' : ''; })()} · ${t('compat')} ${Match.compat(me, p)}%</p>
+    ${user_id === me.user_id ? '' : Match.matchBetween(me.user_id, user_id) ? `<p><span class="st ok">❤️ ${t('already_matched')}</span></p>` : DB.find('likes', l => l.from_id === me.user_id && l.to_id === user_id && ['like', 'super'].includes(l.type)) ? `<p><span class="tag">❤️ ${t('liked_already')}</span></p>` : `<div class="row" style="gap:8px;margin:6px 0 4px"><button class="btn btn-honey grow" data-act="likeUser" data-uid="${user_id}" data-t="like">❤️ ${t('like')}</button><button class="btn btn-ink" data-act="likeUser" data-uid="${user_id}" data-t="super">⭐ ${t('super_like')}</button></div>`}
     ${photos.length > 1 ? `<div class="row wrap">${photos.slice(1).map(x => `<img src="${x.url}" style="width:30%;border-radius:10px" alt="">`).join('')}</div>` : ''}
     ${p.about ? `<h3>${t('about')}</h3><p>${esc(p.about)}</p>` : ''}
     <h3>${t('interests')}</h3><div>${(p.interests || []).map(k => `<span class="tag">${vt('interests', k)}</span>`).join('')}</div>
@@ -2162,6 +2285,40 @@ function termsGate(missing) {
   ck.onchange = () => b.disabled = !ck.checked;
   b.onclick = () => { missing.forEach(k => Legal.record(Session.user.id, k)); closeSheet(); toast('✓'); };
 }
+
+
+/* ---------------- NAME SEARCH & BEE RADAR ---------------- */
+function searchRows(rows) {
+  if (!rows.length) return `<p class="muted center" style="padding:18px 0">${t('no_results')}</p>`;
+  return rows.map(({ p, d, shook }) => `<div class="srch-row">
+    <img class="av sm" src="${photoOf(p)}" alt="" style="width:52px;height:52px;border-radius:50%;object-fit:cover;flex:none">
+    <div class="grow" data-act="openProfile" data-uid="${p.user_id}">
+      <div class="nm">${esc(p.display_name)}, ${Profiles.age(p)} ${vBadge(p)}</div>
+      <div class="small muted">${p.privacy?.location === false ? '' : vt('cities', p.city)}${d != null ? ' · <span class="dist">' + Geo.label(d) + '</span>' : ''}${shook ? ' <span class="shake-tag">📳 ' + t('shaking_now') + '</span>' : ''}</div>
+    </div>
+    ${Match.matchBetween(Session.user.id, p.user_id) ? `<button class="btn btn-ghost btn-sm" data-act="openProfile" data-uid="${p.user_id}">💬</button>`
+      : DB.find('likes', l => l.from_id === Session.user.id && l.to_id === p.user_id && ['like', 'super'].includes(l.type)) ? `<span class="tag">❤️</span>`
+      : `<button class="btn btn-honey btn-sm" data-act="likeUser" data-uid="${p.user_id}" data-t="like" aria-label="${t('like')}">❤️</button>`}
+  </div>`).join('');
+}
+const SearchUI = { q: '' };
+function nameSearchSheet() {
+  sheet(`<h2>🔍 ${t('search_name')}</h2>
+    <input class="inp" id="srchInput" type="search" placeholder="${t('search_ph')}" value="${esc(SearchUI.q)}" autocomplete="off" enterkeyhint="search">
+    <div id="srchRes" style="margin-top:8px">${SearchUI.q ? searchRows(Search.byName(Session.user.id, SearchUI.q)) : ''}</div>`);
+  setTimeout(() => $('#srchInput')?.focus(), 60);
+}
+function refreshSearch() { const box = $('#srchRes'); if (box) box.innerHTML = SearchUI.q ? searchRows(Search.byName(Session.user.id, SearchUI.q)) : ''; }
+function radarSheet(res) {
+  if (!res) return sheet(`<h2 class="center">📳 ${t('shake_title')}</h2><div class="radar"><span>🐝</span></div><p class="center muted">${t('shake_scanning')}</p>`);
+  const { shaking, near, radius, located } = res;
+  sheet(`<i class="radar-res" hidden></i><h2>📳 ${t('shake_title')}</h2>
+    ${located ? '' : `<p class="small muted">📍 ${t('city_fallback')}</p>`}
+    ${shaking.length ? `<h3>📳 ${t('shaking_now')}</h3>${searchRows(shaking)}` : ''}
+    <h3>🐝 ${t('nearby_n', { n: radius })}</h3>${near.length ? searchRows(near) : `<p class="muted">${t('shake_none')}</p>`}
+    <div class="row" style="margin-top:14px;gap:8px"><button class="btn btn-honey grow" data-act="shakeGo">📳 ${t('shake_btn')}</button><button class="btn btn-ghost" data-act="closeSheet">${t('close')}</button></div>
+    <p class="tiny muted" style="margin-top:8px">${t('shake_hint')}</p>`);
+}
 /* =====================================================================
    ADMIN PORTAL  (#/admin) — separate from the member app
    ===================================================================== */
@@ -2189,9 +2346,9 @@ function viewAdmin() {
   try { body = (AdminViews[ADM.sec] || AdminViews.dashboard)(); } catch (e) { body = `<div class="panel">${esc(e.message)}</div>`; }
   const side = allowed.map(([g, items]) => `<div class="grp">${g}</div>${items.map(([k, l]) => `<a href="#" class="${ADM.sec === k ? 'on' : ''}" data-act="admSec" data-k="${k}">${l}</a>`).join('')}`).join('');
   return `<div class="adm"><aside class="adm-side"><div style="padding:0 8px 12px">${Brand.wordmark('dark').replace('color:var(--text)', '')}</div>
-    <div class="tiny" style="padding:0 12px 8px;color:#F5B0CF">${esc(a.email)}<br><span class="st" style="background:var(--honey);color:#FFFFFF">${esc(a.role)}</span></div>${side}
+    <div class="tiny" style="padding:0 12px 8px;color:#D9C98F">${esc(a.email)}<br><span class="st" style="background:var(--honey);color:#FFFFFF">${esc(a.role)}</span></div>${side}
     <a href="#" data-act="admLogout" style="margin-top:18px">⎋ Log out</a><a href="#/">← Member app</a></aside>
-    <div style="min-width:0"><div class="adm-top">${Brand.mark(28, 'dark')}<select class="lang-sel grow" style="background:#401029;color:#FFF2F8" data-change="admSec">${allowed.map(([g, items]) => `<optgroup label="${g}">${items.map(([k, l]) => `<option value="${k}" ${ADM.sec === k ? 'selected' : ''}>${l}</option>`).join('')}</optgroup>`).join('')}</select><button class="btn btn-honey btn-sm" data-act="admLogout">⎋</button></div>
+    <div style="min-width:0"><div class="adm-top">${Brand.mark(28, 'dark')}<select class="lang-sel grow" style="background:#26220F;color:#FFF8E1" data-change="admSec">${allowed.map(([g, items]) => `<optgroup label="${g}">${items.map(([k, l]) => `<option value="${k}" ${ADM.sec === k ? 'selected' : ''}>${l}</option>`).join('')}</optgroup>`).join('')}</select><button class="btn btn-honey btn-sm" data-act="admLogout">⎋</button></div>
     <main class="adm-main">${body}</main></div></div>`;
 }
 function adminLogin() {
@@ -2350,13 +2507,13 @@ const AdminViews = {
       ${Cloud.on ? `<div class="panel" style="margin-top:16px"><b>Cloud mode</b><p class="small muted">Connected to Supabase: ${esc(CLOUD_CFG.SUPABASE_URL)}. Data is stored in Postgres with Row Level Security.</p></div>` : `<div class="panel" style="margin-top:16px"><b>Prototype data</b><p class="small muted">All data lives in this browser’s mock database. Reset restores 54 demo profiles and default flags.</p><button class="btn btn-danger btn-sm" data-act="resetDemo">Reset demo database</button></div>`}`;
   },
   brand() {
-    const box = (bg, inner, label) => `<div class="panel center" style="background:${bg}"><div style="display:flex;justify-content:center;min-height:110px;align-items:center">${inner}</div><p class="small" style="color:${bg === '#2B0418' ? '#FFF2F8' : 'inherit'}">${label}</p></div>`;
-    return head('Brand kit') + `<p class="muted">Original Club Bee identity: a hexagon cell with a bee whose dotted flight path traces a heart. Palette: Deep Pink #D1005F, Raspberry #9E0048, Blush #FFC2DC, Vivid Gold #FFC400, Deep Gold #E69500, Wine Ink #2B0418, Rose Mist #FFEEF5.</p>
+    const box = (bg, inner, label) => `<div class="panel center" style="background:${bg}"><div style="display:flex;justify-content:center;min-height:110px;align-items:center">${inner}</div><p class="small" style="color:${bg === '#111111' ? '#FFF8E1' : 'inherit'}">${label}</p></div>`;
+    return head('Brand kit') + `<p class="muted">Original Club Bee identity: a hexagon cell with a bee whose dotted flight path traces a heart. Palette: Bee Yellow #D4A017, Deep Amber #A87700, Honey Cream #FFF9E6, Pollen #FFE9A8, Bee Black #111111, White.</p>
       <div class="kpis" style="grid-template-columns:repeat(auto-fill,minmax(200px,1fr))">
-      ${box('#FFEEF5', `<span style="color:#2B0418">${Brand.wordmark('light').replace('color:var(--text)', 'color:#2B0418')}</span>`, 'Main logo — light')}
-      ${box('#2B0418', `<span style="color:#FFF2F8">${Brand.wordmark('dark')}</span>`, 'Main logo — dark')}
-      ${box('#FFEEF5', Brand.mark(72, 'light'), 'Mobile logo')}${box('#FFEEF5', Brand.appIcon(96), 'App icon')}${box('#FFEEF5', Brand.mark(32, 'light') + '&nbsp;' + Brand.mark(16, 'light'), 'Favicon 32 / 16')}</div>
-      <div class="row wrap" style="margin-top:10px">${['#D1005F', '#9E0048', '#FFC2DC', '#FFC400', '#E69500', '#2B0418', '#FFEEF5'].map(c => `<div class="center"><div style="width:64px;height:64px;border-radius:14px;background:${c};border:1px solid var(--line)"></div><span class="tiny">${c}</span></div>`).join('')}</div>`;
+      ${box('#FFF9E6', `<span style="color:#111111">${Brand.wordmark('light').replace('color:var(--text)', 'color:#111111')}</span>`, 'Main logo — light')}
+      ${box('#111111', `<span style="color:#FFF8E1">${Brand.wordmark('dark')}</span>`, 'Main logo — dark')}
+      ${box('#FFF9E6', Brand.mark(72, 'light'), 'Mobile logo')}${box('#FFF9E6', Brand.appIcon(96), 'App icon')}${box('#FFF9E6', Brand.mark(32, 'light') + '&nbsp;' + Brand.mark(16, 'light'), 'Favicon 32 / 16')}</div>
+      <div class="row wrap" style="margin-top:10px">${['#D4A017', '#A87700', '#FFE9A8', '#111111', '#FFF9E6', '#FFFFFF'].map(c => `<div class="center"><div style="width:64px;height:64px;border-radius:14px;background:${c};border:1px solid var(--line)"></div><span class="tiny">${c}</span></div>`).join('')}</div>`;
   }
 };
 
@@ -2431,6 +2588,9 @@ const Router = {
     bindSwipe();
     const box = $('#msgs'); if (box) box.scrollTop = box.scrollHeight;
     if (parts[0] === 'app' && Session.user && !$('#sheet-ov')) { const miss = Legal.outstanding(Session.user.id); if (miss.length) termsGate(miss); }
+    if (parts[0] === 'app' && Session.user && !Shake.on && Shake.supported() && !Shake.needsPermission()) {
+      Shake.enable().then(() => { try { if (!sessionStorage.getItem('clubbee.shakeTip')) { sessionStorage.setItem('clubbee.shakeTip', '1'); setTimeout(() => toast('📳 ' + t('shake_ready'), 4500), 1500); } } catch (e) {} }).catch(() => {});
+    }
   }
 };
 
@@ -2568,6 +2728,32 @@ const Actions = {
   openChatMatch(el) { const c = Chat.convFor(el.dataset.mid); if (!c) return; if (c.deleted_by.includes(me())) DB.update('conversations', c.id, { deleted_by: c.deleted_by.filter(x => x !== me()) }); go('#/app/chat/' + c.id); },
   favMatch(el) { const m = DB.get('matches', el.dataset.mid); const f = m.favorite_by || []; DB.update('matches', m.id, { favorite_by: f.includes(me()) ? f.filter(x => x !== me()) : [...f, me()] }); Router.render(); },
   goDiscover() { go('#/app/discover'); },
+  nameSearch() { nameSearchSheet(); },
+  likeUser(el) {
+    const uid_ = el.dataset.uid, ty = el.dataset.t || 'like';
+    const res = Match.act(me(), uid_, ty);
+    if (res && res.match) { closeSheet(); if (location.hash === '#/app/discover') Router.render(); showMatch(uid_, res.match); return; }
+    toast('❤️ ' + t('liked_ok'));
+    if ($('#srchRes')) refreshSearch();
+    else if ($('#sheet-ov .radar-res') && Radar.last) radarSheet(Radar.last);
+    else if ($('#sheet-ov .p-hero')) profileSheet(uid_);
+    if (location.hash === '#/app/discover') Router.render();
+  },
+  async shakeGo() {
+    if (Radar.busy) return; Radar.busy = true;
+    try {
+      if (Shake.supported() && !Shake.on) { try { await Shake.enable(); } catch (e) {} }
+      try { navigator.vibrate && navigator.vibrate([80, 60, 80]); } catch (e) {}
+      radarSheet(null);
+      const [res] = await Promise.all([Radar.scan(me()), new Promise(r => setTimeout(r, 1200))]);
+      Radar.last = res; radarSheet(res);
+      if (location.hash === '#/app/discover') Router.render();
+    } catch (e) { toast(e.message); } finally { Radar.busy = false; }
+  },
+  async geoUpdate() {
+    try { await Geo.update(me()); toast('📍 ' + t('location_updated')); if ($('#sheet-ov form[data-form=filters]')) filtersSheet(); Router.render(); }
+    catch (e) { toast(e.message, 5000); }
+  },
   /* chat */
   openChat(el) { closeSheet(); go('#/app/chat/' + el.dataset.cid); },
   goChat() { go('#/app/chat'); },
@@ -2692,7 +2878,7 @@ const Forms = {
   async email(f) { const d = formData(f); if (AuthUI.emailMode === 'register') await Auth.registerEmail(d.email, d.pw); else await Auth.loginEmail(d.email, d.pw); afterLogin(); },
   filters(f) {
     const d = formData(f); const adv = Members.perm(me(), 'advanced_search');
-    const o = { city: d.city || '', goal: d.goal || '', age_min: +d.age_min || 0, age_max: +d.age_max || 0 };
+    const o = { city: d.city || '', goal: d.goal || '', age_min: +d.age_min || 0, age_max: +d.age_max || 0, max_km: +d.max_km || 0 };
     if (adv) Object.assign(o, { interest: d.interest || '', lang: d.lang || '', verified: !!d.verified });
     Object.keys(o).forEach(k => { if (!o[k]) delete o[k]; }); DiscoverState.filters = o; closeSheet(); Router.render();
   },
@@ -2835,7 +3021,12 @@ document.addEventListener('change', e => {
   if (el.dataset && (el.dataset.ls || el.dataset.obc)) { obInput(el); return; }
   const k = el.dataset && el.dataset.change; if (k && Changes[k]) Promise.resolve(Changes[k](el)).catch(err => toast(err.message));
 });
-document.addEventListener('input', e => { const el = e.target; if (el.dataset && (el.dataset.ob || el.dataset.ls || el.dataset.obc)) obInput(el); });
+document.addEventListener('input', e => { const el = e.target; if (el.id === 'srchInput') { SearchUI.q = el.value; refreshSearch(); return; } if (el.dataset && (el.dataset.ob || el.dataset.ls || el.dataset.obc)) obInput(el); });
+document.addEventListener('clubbee:shake', () => {
+  const u = Session.user; if (!u || u.status !== 'active' || !location.hash.startsWith('#/app') || Radar.busy) return;
+  const ov = $('#sheet-ov'); if (ov && !ov.querySelector('.radar-res, .radar')) return;
+  Actions.shakeGo();
+});
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { if ($('#match-ov')) $('#match-ov').remove(); else if ($('#sheet-ov') && !$('#gateck')) closeSheet(); } });
 document.addEventListener('visibilitychange', () => { const u = Session.user; if (u) { DB.update('users', u.id, { online: document.visibilityState === 'visible', last_active: now() }); } if (document.visibilityState === 'visible' && ChatUI.cid) UI.refreshChat(ChatUI.cid); });
 
