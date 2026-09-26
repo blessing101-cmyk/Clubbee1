@@ -1846,9 +1846,10 @@ function showLegal(k) {
 /* =====================================================================
    AUTH
    ===================================================================== */
-const AuthUI = { tab: 'phone', emailMode: 'register', phone: null };
+const PHONE_LOGIN = !Cloud.on || !!CLOUD_CFG.PHONE_LOGIN;
+const AuthUI = { tab: PHONE_LOGIN ? 'phone' : 'email', emailMode: 'register', phone: null };
 function viewAuth() {
-  const tabs = ['phone', 'email', 'social'];
+  const tabs = (PHONE_LOGIN ? ['phone'] : []).concat(['email'], CLOUD_CFG.SOCIAL_LOGIN ? ['social'] : []); if (!tabs.includes(AuthUI.tab)) AuthUI.tab = tabs[0];
   let body = '';
   if (AuthUI.tab === 'phone') body = AuthUI.phone ? `
     <form class="col" data-form="otpVerify"><p class="muted small">${esc(AuthUI.phone)}</p><label class="f">${t('otp_label')}<input class="inp" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" required></label><div class="err" id="aerr"></div><button class="btn btn-honey">${t('verify')}</button><button type="button" class="btn btn-ghost btn-sm" data-act="otpBack">${t('back')}</button></form>` : `
@@ -1863,7 +1864,7 @@ function viewAuth() {
   return `<header class="topbar"><div class="inner"><a href="#/" class="logo">${Brand.wordmark()}</a><span class="grow"></span>${langSelect()}</div></header>
   <main class="container" style="max-width:440px;padding-top:30px;padding-bottom:40px">
     <h1 style="font-size:2rem">${t('auth_title')}</h1><p class="muted">${t('auth_sub')}</p>
-    <div class="tabs" role="tablist">${tabs.map(k => `<button role="tab" class="${AuthUI.tab === k ? 'on' : ''}" data-act="authTab" data-k="${k}">${t('tab_' + k)}</button>`).join('')}</div>
+    ${tabs.length < 2 ? '' : `<div class="tabs" role="tablist">${tabs.map(k => `<button role="tab" class="${AuthUI.tab === k ? 'on' : ''}" data-act="authTab" data-k="${k}">${t('tab_' + k)}</button>`).join('')}</div>`}
     <div class="panel">${body}</div>
     <p class="tiny muted center" style="margin-top:16px">${t('age_block', { n: ENV.MIN_AGE })}</p>
   </main>`;
@@ -2193,7 +2194,7 @@ function viewProfile() {
       <div class="row wrap" style="margin-top:6px"><span class="tag">${plan.name}</span>${tierBadge(u.id)}</div></div></div>
     <div class="tile" style="margin:14px 0"><div class="row between small"><span>${t('profile_complete')}</span><b>${Profiles.completion(p)}%</b></div><div class="progress" style="margin:6px 0 0"><i style="width:${Profiles.completion(p)}%"></i></div></div>
     <div class="row wrap"><button class="btn btn-honey btn-sm" data-act="editProfile">✏️ ${t('edit_profile')}</button><button class="btn btn-ghost btn-sm" data-act="openProfile" data-uid="${u.id}">👁 ${t('view')}</button></div>
-    <h3 style="margin-top:22px">🛡️ ${t('verification')}</h3><div class="panel col">${vrow('phone', 'v_phone')}${vrow('identity', 'v_identity')}${vrow('profile', 'v_profile')}</div>
+    <h3 style="margin-top:22px">🛡️ ${t('verification')}</h3><div class="panel col">${PHONE_LOGIN || p.verification?.phone ? vrow('phone', 'v_phone') : ''}${vrow('identity', 'v_identity')}${vrow('profile', 'v_profile')}</div>
     ${Flags.on('ENABLE_PREMIUM') || Flags.on('ENABLE_CREDITS') ? `<h3 style="margin-top:22px">✨ ${t('membership')}</h3><div class="panel col">
       ${Flags.on('ENABLE_PREMIUM') ? `<div class="row between"><span>${t('current_plan')}: <b>${plan.name}</b></span><button class="btn btn-ghost btn-sm" data-act="goMembership">${t('view')}</button></div>` : ''}
       ${Flags.on('ENABLE_CREDITS') ? `<div class="row between"><span>🍯 ${t('credits')}: <b>${Credits.balance(u.id)}</b></span><button class="btn btn-ghost btn-sm" data-act="goCredits">${t('buy')}</button></div>` : ''}</div>` : `<div class="tile small" style="margin-top:18px">🐝 ${t('free_launch')}</div>`}
