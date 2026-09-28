@@ -280,6 +280,20 @@ table.tbl{width:100%;border-collapse:collapse;font-size:.88rem;min-width:640px}
 .btn-ink,:root .btn-ink{background:#000;color:#E8B923;border:1.5px solid #C9971C}
 .toast{background:#000;color:#FFE27A;border:1px solid #C9971C}
 .bottomnav{border-top:1px solid #4A3A0E}
+.hero-card{background:linear-gradient(135deg,#1E1807,#050505);border:1.5px solid #8C6510}
+.av-btn{border:0;padding:0;background:none;cursor:pointer;flex:none}.av-btn img{width:84px;height:104px;border-radius:18px;border:3px solid var(--gold);object-fit:cover;display:block}
+.lv-badge{background:linear-gradient(135deg,#FFE27A,#C9971C);color:#000;border-radius:999px;padding:2px 10px;font-size:.75rem;font-weight:700;white-space:nowrap}
+.island{position:relative;width:100%;aspect-ratio:1/1.08;margin-top:10px;border-radius:28px;overflow:hidden;background:radial-gradient(ellipse at 50% 55%,#3A2C05 0 46%,#1A1405 47% 52%,#07141f 53%);border:1.5px solid #4A3A0E}
+.island .sea{position:absolute;inset:0;background:repeating-radial-gradient(circle at 50% 55%,transparent 0 18px,rgba(76,141,235,.07) 19px 20px);pointer-events:none}
+.zone{position:absolute;width:31%;aspect-ratio:1/0.92;transform:translateX(-50%);border:0;cursor:pointer;background:linear-gradient(160deg,#2E2306,#141007);clip-path:polygon(25% 0,75% 0,100% 50%,75% 100%,25% 100%,0 50%);display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--text);font-family:var(--font-b);transition:transform .2s}
+.zone::before{content:"";position:absolute;inset:0;clip-path:inherit;border:0;box-shadow:inset 0 0 0 2px #8C6510;pointer-events:none}
+.zone .ze{font-size:1.6rem;line-height:1}.zone .zn{font-size:.66rem;font-weight:600;margin-top:3px;text-align:center;padding:0 6px}.zone .zc{font-size:.62rem;color:var(--gold);margin-top:2px}
+.zone.sel{background:linear-gradient(160deg,#5C4608,#2A1F04)}.zone.here{background:linear-gradient(160deg,#E8B923,#8C6510);color:#000}.zone.here .zc{color:#000}
+.zone.locked{opacity:.55}.zone:active{transform:translateX(-50%) scale(.95)}
+.zone .me-av{position:absolute;bottom:4%;width:26%;border-radius:8px;border:2px solid #000;animation:bob 1.6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-4px)}}@media (prefers-reduced-motion:reduce){.zone .me-av{animation:none}}
+.hscroll{display:flex;gap:10px;overflow-x:auto;padding-bottom:6px}.mini-bee{flex:none;width:78px;border:0;background:none;color:var(--text);cursor:pointer;text-align:center;font-size:.72rem}
+.mini-bee img{width:70px;height:86px;border-radius:14px;border:2px solid #8C6510;display:block;margin:0 auto 4px}.mini-bee span{display:block;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 </style>
 </head>
 <body>
@@ -362,6 +376,7 @@ const RateLimit = {
    ===================================================================== */
 const DICT = {
 en: {
+  nav_world: 'Hive', world_h: 'The Hive', world_sub: 'Tap a place on the island to go there', level_n: 'Lv {n}', lv0: 'New Bee', lv1: 'Bee', lv2: 'Honey Bee', lv3: 'Golden Bee', lv4: 'Royal Bee', xp_to: '{n} XP to {l}', xp_max: 'Top level reached', friends: 'Friends', followers: 'Followers', following: 'Following', online_friends: 'Online friends', bees_here: 'Bees here', nobody_here: 'Nobody here right now — you’re the first bee!', you_are_here: 'You are here', go_here: 'Go', moved_to: 'You moved to {z}', z_plaza: 'Hive Plaza', z_cafe: 'Honey Café', z_games: 'Game Zone', z_garden: 'Love Garden', z_party: 'Party Club', z_beach: 'Honey Beach', z_fame: 'Hall of Fame', z_shop: 'Honey Shop', z_room: 'My Room', zd_plaza: 'Meet everyone in the square', zd_cafe: 'Chill and chat', zd_games: 'Mini games & rewards', zd_garden: 'Dating — find your match', zd_party: 'Events & parties', zd_beach: 'Hang out with new friends', zd_fame: 'Top bees leaderboard', zd_shop: 'Virtual items', zd_room: 'Your avatar & space', open_zone: 'Open', coming_phase: 'Opening soon', wave: 'Wave', follow: 'Follow', unfollow: 'Following ✓', add_friend: 'Add friend', friend_pending: 'Request sent', friend_accept: 'Accept', friend_decline: 'Decline', is_friend: 'Friends ✓', unfriend: 'Remove friend', waved: 'You waved at {name} 👋', friend_sent: 'Friend request sent', friend_added: 'You are now friends with {name}', friend_requests: 'Friend requests', recommended: 'Recommended for you', avatar_h: 'My Avatar', avatar_save: 'Save avatar', av_skin: 'Skin', av_hair: 'Hair color', av_style: 'Hairstyle', av_face: 'Face', av_outfit: 'Outfit', av_acc: 'Accessory', av_bg: 'Background', av_glasses: 'Glasses', avatar_saved: 'Avatar saved', enter_hive: 'Enter the Hive', leaderboard: 'Leaderboard', lb_friends: 'Most friends', my_dates: 'My dates', community: 'Community', n_wave: '{name} waved at you 👋', n_friend_req: '{name} wants to be friends', n_friend_ok: '{name} accepted your friend request', n_follow: '{name} started following you', rate_slow: 'Slow down a little 🐝',
   search_name: 'Search by name', search_ph: 'Type a name…', no_results: 'No bees found', distance: 'Distance', any_distance: 'Any distance', km_n: '{n} km', km_lt1: '< 1 km', use_location: 'Use my location', location_updated: 'Location updated (approximate, ~1 km)', geo_denied: 'Location permission was denied. Allow it in your browser settings, or we will use your city.', geo_unsupported: 'This device can’t share location. We’ll use your city.', geo_private: 'Turn on “Share approximate location” in Privacy first.', shake_title: 'Bee Radar', shake_hint: 'Shake your phone (or tap the button) to find bees near you right now.', shake_btn: 'Shake / scan', shake_scanning: 'Scanning the hive around you…', shaking_now: 'Shaking right now', nearby_n: 'Nearby (within {n} km)', shake_none: 'No bees nearby yet. Try again later or widen your filters.', shake_unsupported: 'Shake isn’t supported on this device — use the button.', shake_denied: 'Motion access was not allowed — use the button instead.', shake_ready: 'Shake is on — shake your phone anytime to find bees nearby', city_fallback: 'Using your city center (location off)', already_matched: 'Already matched', liked_already: 'Liked',
   show_pw: 'Show password', hide_pw: 'Hide password',
   loading: 'Opening the hive…', cloud_error: 'Could not connect to the server', check_email: 'We sent a confirmation link to your email. Open it, then log in.', sms_not_ready: 'Phone login isn’t switched on yet. Please use email for now.', oauth_not_ready: '{p} login isn’t switched on yet. Please use email for now.', pay_not_connected: 'Online payment isn’t connected yet. Please contact Club Bee support to upgrade.',
@@ -407,7 +422,7 @@ en: {
   safety_read: 'I have read and understand the safety guidance', terms_accept: 'I have read, understand and accept the terms',
   terms_ack_title: 'Member acknowledgement',
   ob_welcome: 'Welcome to the Hive, {name}!', ob_welcome_d: 'Your profile is live. The bees are gathering…', start_discovering: 'Start discovering',
-  nav_discover: 'Discover', nav_matches: 'Matches', nav_chat: 'Chat', nav_dates: 'Dates', nav_profile: 'Profile', nav_hive: 'Hive',
+  nav_discover: 'Discover', nav_matches: 'Matches', nav_chat: 'Chat', nav_dates: 'Dates', nav_profile: 'Profile', nav_hive: 'Community',
   compat: 'Match', compat_note: 'Compatibility is a system score to help you search — not a guarantee of a relationship.',
   no_more_h: 'The hive is quiet…', no_more_p: 'Try widening your search or complete more of your profile.', discover_more: 'Discover more bees',
   its_match: "IT'S A MATCH! 🐝❤️", match_sub: 'You and {name} like each other.', send_msg: 'Send a message', keep_swiping: 'Keep discovering',
@@ -452,6 +467,7 @@ en: {
   demo_reset: 'Reset demo data', demo_note: 'Prototype mode: data stays on this device (mock database).'
 },
 th: {
+  nav_world: 'รังผึ้ง', world_h: 'The Hive', world_sub: 'แตะสถานที่บนเกาะเพื่อเดินไปที่นั่น', level_n: 'Lv {n}', lv0: 'New Bee', lv1: 'Bee', lv2: 'Honey Bee', lv3: 'Golden Bee', lv4: 'Royal Bee', xp_to: 'อีก {n} XP ถึง {l}', xp_max: 'เลเวลสูงสุดแล้ว', friends: 'เพื่อน', followers: 'ผู้ติดตาม', following: 'กำลังติดตาม', online_friends: 'เพื่อนที่ออนไลน์', bees_here: 'ผึ้งที่อยู่ที่นี่', nobody_here: 'ยังไม่มีใครอยู่ตอนนี้ — คุณคือผึ้งตัวแรก!', you_are_here: 'คุณอยู่ที่นี่', go_here: 'ไป', moved_to: 'คุณเดินไปที่ {z}', z_plaza: 'Hive Plaza', z_cafe: 'Honey Café', z_games: 'Game Zone', z_garden: 'Love Garden', z_party: 'Party Club', z_beach: 'Honey Beach', z_fame: 'Hall of Fame', z_shop: 'Honey Shop', z_room: 'My Room', zd_plaza: 'ลานกลาง เจอทุกคน', zd_cafe: 'นั่งชิลพูดคุย', zd_games: 'มินิเกมและรางวัล', zd_garden: 'หาคู่ — ค้นหาแมตช์', zd_party: 'อีเวนต์และปาร์ตี้', zd_beach: 'แฮงเอาต์กับเพื่อนใหม่', zd_fame: 'อันดับผึ้งยอดนิยม', zd_shop: 'ไอเทมเสมือน', zd_room: 'Avatar และพื้นที่ของคุณ', open_zone: 'เข้า', coming_phase: 'เปิดเร็วๆ นี้', wave: 'โบกมือ', follow: 'ติดตาม', unfollow: 'ติดตามแล้ว ✓', add_friend: 'เพิ่มเพื่อน', friend_pending: 'ส่งคำขอแล้ว', friend_accept: 'ยอมรับ', friend_decline: 'ปฏิเสธ', is_friend: 'เป็นเพื่อนแล้ว ✓', unfriend: 'ลบเพื่อน', waved: 'คุณโบกมือให้ {name} 👋', friend_sent: 'ส่งคำขอเป็นเพื่อนแล้ว', friend_added: 'คุณกับ {name} เป็นเพื่อนกันแล้ว', friend_requests: 'คำขอเป็นเพื่อน', recommended: 'แนะนำสำหรับคุณ', avatar_h: 'Avatar ของฉัน', avatar_save: 'บันทึก Avatar', av_skin: 'สีผิว', av_hair: 'สีผม', av_style: 'ทรงผม', av_face: 'ใบหน้า', av_outfit: 'ชุด', av_acc: 'เครื่องประดับ', av_bg: 'พื้นหลัง', av_glasses: 'แว่นตา', avatar_saved: 'บันทึก Avatar แล้ว', enter_hive: 'เข้าสู่ Hive', leaderboard: 'อันดับ', lb_friends: 'เพื่อนมากที่สุด', my_dates: 'นัดของฉัน', community: 'ชุมชน', n_wave: '{name} โบกมือให้คุณ 👋', n_friend_req: '{name} ขอเป็นเพื่อนกับคุณ', n_friend_ok: '{name} ยอมรับคำขอเป็นเพื่อนแล้ว', n_follow: '{name} เริ่มติดตามคุณ', rate_slow: 'ใจเย็นๆ นิดนึงนะ 🐝',
   search_name: 'ค้นหาจากชื่อ', search_ph: 'พิมพ์ชื่อ…', no_results: 'ไม่พบผึ้งชื่อนี้', distance: 'ระยะห่าง', any_distance: 'ทุกระยะ', km_n: '{n} กม.', km_lt1: '< 1 กม.', use_location: 'ใช้ตำแหน่งปัจจุบัน', location_updated: 'อัปเดตตำแหน่งแล้ว (โดยประมาณ ~1 กม.)', geo_denied: 'ไม่ได้รับอนุญาตให้ใช้ตำแหน่ง อนุญาตได้ในการตั้งค่าเบราว์เซอร์ หรือระบบจะใช้เมืองของคุณแทน', geo_unsupported: 'อุปกรณ์นี้แชร์ตำแหน่งไม่ได้ ระบบจะใช้เมืองของคุณแทน', geo_private: 'เปิด “แชร์ตำแหน่งโดยประมาณ” ในความเป็นส่วนตัวก่อน', shake_title: 'เรดาร์ผึ้ง', shake_hint: 'เขย่ามือถือ (หรือกดปุ่ม) เพื่อหาผึ้งที่อยู่ใกล้คุณตอนนี้', shake_btn: 'เขย่า / สแกน', shake_scanning: 'กำลังสแกนรังผึ้งรอบตัวคุณ…', shaking_now: 'เขย่าพร้อมกันตอนนี้', nearby_n: 'ใกล้คุณ (ภายใน {n} กม.)', shake_none: 'ยังไม่มีผึ้งใกล้ๆ ลองใหม่อีกครั้ง หรือขยายตัวกรอง', shake_unsupported: 'อุปกรณ์นี้ไม่รองรับการเขย่า ใช้ปุ่มแทนได้', shake_denied: 'ไม่ได้รับอนุญาตใช้เซนเซอร์ ใช้ปุ่มแทนได้', shake_ready: 'เปิดโหมดเขย่าแล้ว เขย่ามือถือเมื่อไหร่ก็หาผึ้งใกล้ตัวได้', city_fallback: 'ใช้จุดกลางเมืองของคุณ (ไม่ได้เปิดตำแหน่ง)', already_matched: 'แมตช์กันแล้ว', liked_already: 'ถูกใจแล้ว',
   show_pw: 'แสดงรหัสผ่าน', hide_pw: 'ซ่อนรหัสผ่าน',
   loading: 'กำลังเปิดรังผึ้ง…', cloud_error: 'เชื่อมต่อเซิร์ฟเวอร์ไม่สำเร็จ', check_email: 'เราส่งลิงก์ยืนยันไปที่อีเมลของคุณแล้ว กดยืนยันแล้วกลับมาเข้าสู่ระบบ', sms_not_ready: 'ยังไม่ได้เปิดการเข้าสู่ระบบด้วยเบอร์โทร กรุณาใช้อีเมลก่อน', oauth_not_ready: 'ยังไม่ได้เปิดการเข้าสู่ระบบด้วย {p} กรุณาใช้อีเมลก่อน', pay_not_connected: 'ยังไม่ได้เชื่อมระบบชำระเงินออนไลน์ กรุณาติดต่อทีม Club Bee เพื่ออัปเกรด',
@@ -497,7 +513,7 @@ th: {
   safety_read: 'ฉันอ่านและเข้าใจคำแนะนำด้านความปลอดภัย', terms_accept: 'ฉันได้อ่าน เข้าใจ และยอมรับข้อกำหนด',
   terms_ack_title: 'การรับทราบของสมาชิก',
   ob_welcome: 'ยินดีต้อนรับสู่ Hive, {name}!', ob_welcome_d: 'โปรไฟล์ของคุณพร้อมแล้ว ผึ้งน้อยกำลังมารุมล้อม…', start_discovering: 'เริ่มค้นพบ',
-  nav_discover: 'ค้นพบ', nav_matches: 'แมตช์', nav_chat: 'แชท', nav_dates: 'นัดพบ', nav_profile: 'โปรไฟล์', nav_hive: 'Hive',
+  nav_discover: 'ค้นพบ', nav_matches: 'แมตช์', nav_chat: 'แชท', nav_dates: 'นัดพบ', nav_profile: 'โปรไฟล์', nav_hive: 'ชุมชน',
   compat: 'เข้ากัน', compat_note: 'คะแนนความเข้ากันได้เป็นคะแนนจากระบบเพื่อช่วยค้นหาเท่านั้น ไม่ใช่การรับประกันความสัมพันธ์',
   no_more_h: 'รังยังเงียบอยู่…', no_more_p: 'ลองเปิดพื้นที่ค้นหาให้กว้างขึ้น หรือเติมข้อมูลใน Profile ของคุณ', discover_more: 'Discover More Bees',
   its_match: "IT'S A MATCH! 🐝❤️", match_sub: 'คุณกับ {name} ถูกใจกันและกัน', send_msg: 'ส่งข้อความ', keep_swiping: 'ค้นหาต่อ',
@@ -542,6 +558,7 @@ th: {
   demo_reset: 'รีเซ็ตข้อมูลตัวอย่าง', demo_note: 'โหมดต้นแบบ: ข้อมูลเก็บบนอุปกรณ์นี้ (ฐานข้อมูลจำลอง)'
 },
 zh: {
+  nav_world: '蜂巢', world_h: 'The Hive', world_sub: '点击岛上的地点前往', level_n: 'Lv {n}', lv0: 'New Bee', lv1: 'Bee', lv2: 'Honey Bee', lv3: 'Golden Bee', lv4: 'Royal Bee', xp_to: '还差 {n} XP 升到 {l}', xp_max: '已达最高等级', friends: '好友', followers: '粉丝', following: '关注中', online_friends: '在线好友', bees_here: '这里的蜜蜂', nobody_here: '现在还没有人——你是第一只蜜蜂！', you_are_here: '你在这里', go_here: '前往', moved_to: '你来到了 {z}', z_plaza: 'Hive Plaza', z_cafe: 'Honey Café', z_games: 'Game Zone', z_garden: 'Love Garden', z_party: 'Party Club', z_beach: 'Honey Beach', z_fame: 'Hall of Fame', z_shop: 'Honey Shop', z_room: 'My Room', zd_plaza: '广场，认识所有人', zd_cafe: '休闲聊天', zd_games: '小游戏与奖励', zd_garden: '约会——寻找配对', zd_party: '活动与派对', zd_beach: '和新朋友一起玩', zd_fame: '人气排行榜', zd_shop: '虚拟物品', zd_room: '你的形象与空间', open_zone: '进入', coming_phase: '即将开放', wave: '打招呼', follow: '关注', unfollow: '已关注 ✓', add_friend: '加好友', friend_pending: '已发送请求', friend_accept: '接受', friend_decline: '拒绝', is_friend: '已是好友 ✓', unfriend: '删除好友', waved: '你向 {name} 打了招呼 👋', friend_sent: '好友请求已发送', friend_added: '你和 {name} 成为好友了', friend_requests: '好友请求', recommended: '为你推荐', avatar_h: '我的形象', avatar_save: '保存形象', av_skin: '肤色', av_hair: '发色', av_style: '发型', av_face: '表情', av_outfit: '服装', av_acc: '配饰', av_bg: '背景', av_glasses: '眼镜', avatar_saved: '形象已保存', enter_hive: '进入蜂巢', leaderboard: '排行榜', lb_friends: '好友最多', my_dates: '我的约会', community: '社区', n_wave: '{name} 向你打招呼 👋', n_friend_req: '{name} 想加你为好友', n_friend_ok: '{name} 接受了你的好友请求', n_follow: '{name} 关注了你', rate_slow: '慢一点哦 🐝',
   search_name: '按名字搜索', search_ph: '输入名字…', no_results: '没有找到', distance: '距离', any_distance: '不限距离', km_n: '{n} 公里', km_lt1: '< 1 公里', use_location: '使用当前位置', location_updated: '位置已更新（约 1 公里精度）', geo_denied: '未获得位置权限。可在浏览器设置中允许，否则将使用你的城市。', geo_unsupported: '此设备无法共享位置，将使用你的城市。', geo_private: '请先在隐私设置中开启“共享大致位置”。', shake_title: '蜜蜂雷达', shake_hint: '摇一摇手机（或点按钮）寻找附近的蜜蜂。', shake_btn: '摇一摇 / 扫描', shake_scanning: '正在扫描你附近的蜂巢…', shaking_now: '正在同时摇一摇', nearby_n: '附近（{n} 公里内）', shake_none: '附近暂时没有蜜蜂，稍后再试或放宽筛选。', shake_unsupported: '此设备不支持摇一摇，请使用按钮。', shake_denied: '未允许动作感应，请使用按钮。', shake_ready: '摇一摇已开启，随时摇手机寻找附近的蜜蜂', city_fallback: '使用城市中心（未开启定位）', already_matched: '已配对', liked_already: '已喜欢',
   show_pw: '显示密码', hide_pw: '隐藏密码',
   loading: '正在打开蜂巢…', cloud_error: '无法连接服务器', check_email: '确认链接已发送到你的邮箱，确认后再登录。', sms_not_ready: '手机登录尚未开通，请先使用邮箱。', oauth_not_ready: '{p} 登录尚未开通，请先使用邮箱。', pay_not_connected: '在线支付尚未接入，请联系 Club Bee 客服升级。',
@@ -595,7 +612,7 @@ zh: {
   goal_serious: '认真的恋爱', goal_dating: '约会', goal_friends: '新朋友', goal_open: '还不确定', f_interests: '至少选择3个兴趣', f_photo: '添加清晰的本人照片',
   upload_photo: '上传照片', use_avatar: '暂时使用插画头像', f_about: '关于我', age_block: 'Club Bee 仅限 {n} 岁及以上成年人。',
   safety_read: '我已阅读并理解安全指引', terms_accept: '我已阅读、理解并接受条款', ob_welcome: '欢迎来到蜂巢，{name}！', start_discovering: '开始发现',
-  nav_discover: '发现', nav_matches: '配对', nav_chat: '聊天', nav_dates: '约会', nav_profile: '我的', nav_hive: '蜂巢',
+  nav_discover: '发现', nav_matches: '配对', nav_chat: '聊天', nav_dates: '约会', nav_profile: '我的', nav_hive: '社区',
   compat: '匹配', compat_note: '匹配度是系统辅助搜索的分数，不代表关系保证。', no_more_h: '蜂巢还很安静…', no_more_p: '试着扩大搜索范围或完善你的资料。', discover_more: '发现更多蜜蜂',
   match_sub: '你和 {name} 互相喜欢。', send_msg: '发消息', keep_swiping: '继续发现', filters: '筛选', verified: '已认证',
   tab_new: '新配对', tab_recent: '最近', tab_fav: '收藏', tab_likes: '喜欢你的人', tab_saved: '已保存', empty_list: '暂无内容。',
@@ -644,7 +661,7 @@ const vt = (group, key) => { const v = VOCAB[group][key]; if (!v) return key; re
    (UUID primary keys, FK-style references). Swap for Supabase/Postgres by
    re-implementing DB.* against the REST/RPC API.
    ===================================================================== */
-const TABLES = ['users', 'profiles', 'photos', 'preferences', 'interests', 'likes', 'matches', 'super_likes', 'blocks', 'conversations', 'messages',
+const TABLES = ['friends', 'followers', 'virtual_locations', 'users', 'profiles', 'photos', 'preferences', 'interests', 'likes', 'matches', 'super_likes', 'blocks', 'conversations', 'messages',
   'date_requests', 'date_events', 'memberships', 'membership_plans', 'membership_permissions', 'subscriptions', 'waitlist', 'credits', 'credit_packages', 'credit_transactions',
   'boosts', 'payments', 'promotions', 'referrals', 'notifications', 'reports', 'moderation_cases', 'moderation_actions', 'verification_requests',
   'admin_users', 'roles', 'permissions', 'audit_logs', 'consents', 'terms_versions', 'privacy_versions', 'safety_acknowledgements',
@@ -671,7 +688,8 @@ const DB = {
   reset() { if (Cloud.on) return location.reload(); try { localStorage.removeItem(ENV.STORE_KEY); localStorage.removeItem(ENV.SESSION_KEY); } catch (e) {} location.hash = '#/'; location.reload(); }
 };
 const Setting = { get(k, d) { const r = DB.find('system_settings', x => x.key === k); return r ? r.value : d; }, set(k, v) { const r = DB.find('system_settings', x => x.key === k); r ? DB.update('system_settings', r.id, { value: v }) : DB.insert('system_settings', { key: k, value: v }); } };
-const Flags = { on(k) { const f = DB.find('feature_flags', x => x.key === k); return !!(f && f.enabled); } };
+const FLAG_DEFAULTS = { ENABLE_VIRTUAL_WORLD: true, ENABLE_AVATAR: true, ENABLE_DATING: true, ENABLE_GAMES: false, ENABLE_HONEY: false, ENABLE_SHOP: false, ENABLE_VIRTUAL_DATE: false };
+const Flags = { on(k) { const f = DB.find('feature_flags', x => x.key === k); return f ? !!f.enabled : !!FLAG_DEFAULTS[k]; } };
 
 /* =====================================================================
    BRAND — Club Bee identity (original artwork)
@@ -726,10 +744,17 @@ function avatarSVG(a) {
     <rect x="160" y="230" width="40" height="60" rx="18" fill="${skin}"/>
     <ellipse cx="180" cy="170" rx="62" ry="74" fill="${skin}"/>
     ${hairFront}
-    <circle cx="160" cy="170" r="5" fill="#111111"/><circle cx="200" cy="170" r="5" fill="#111111"/>
-    <path d="M162 204c10 10 26 10 36 0" stroke="#7A3B2E" stroke-width="4" fill="none" stroke-linecap="round"/>
+    ${[`<circle cx="160" cy="170" r="5" fill="#111111"/><circle cx="200" cy="170" r="5" fill="#111111"/><path d="M162 204c10 10 26 10 36 0" stroke="#7A3B2E" stroke-width="4" fill="none" stroke-linecap="round"/>`,
+      `<path d="M152 172q8-10 16 0M192 172q8-10 16 0" stroke="#111" stroke-width="4" fill="none" stroke-linecap="round"/><path d="M158 200q22 26 44 0z" fill="#7A3B2E"/>`,
+      `<circle cx="160" cy="170" r="5" fill="#111111"/><path d="M192 171h16" stroke="#111" stroke-width="4" stroke-linecap="round"/><path d="M164 204c10 8 24 8 32-2" stroke="#7A3B2E" stroke-width="4" fill="none" stroke-linecap="round"/>`,
+      `<rect x="143" y="160" width="34" height="18" rx="7" fill="#111"/><rect x="183" y="160" width="34" height="18" rx="7" fill="#111"/><path d="M177 166h6" stroke="#111" stroke-width="4"/><path d="M166 206h28" stroke="#7A3B2E" stroke-width="4" stroke-linecap="round"/>`][(a.face || 0) % 4]}
     <circle cx="145" cy="192" r="9" fill="#E0475F" opacity=".18"/><circle cx="215" cy="192" r="9" fill="#E0475F" opacity=".18"/>
-    ${glasses}</svg>`;
+    ${glasses}${[``,
+      `<path d="M160 100q-14-34-30-40M200 100q14-34 30-40" stroke="#111" stroke-width="4" fill="none"/><circle cx="130" cy="58" r="9" fill="#E8B923" stroke="#111" stroke-width="3"/><circle cx="230" cy="58" r="9" fill="#E8B923" stroke="#111" stroke-width="3"/>`,
+      `<path d="M132 96l14-34 20 22 14-30 14 30 20-22 14 34z" fill="#E8B923" stroke="#8C6510" stroke-width="3"/>`,
+      `<g transform="translate(222 108)"><circle r="9" fill="#FFE27A"/>${[0, 72, 144, 216, 288].map(r => `<ellipse rx="7" ry="13" cy="-15" fill="#FFF" transform="rotate(${r})"/>`).join('')}<circle r="8" fill="#E8B923"/></g>`,
+      `<path d="M116 124q64-58 128 0v10h-128z" fill="#111"/><path d="M236 128h40q4 10-8 12h-32z" fill="#111"/><circle cx="180" cy="86" r="6" fill="#E8B923"/>`,
+      `<g transform="translate(180 96)"><path d="M0 0l-30-16v32zM0 0l30-16v32z" fill="#E5484D"/><circle r="7" fill="#B8233A"/></g>`][(a.acc || 0) % 6]}</svg>`;
   return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
 }
 function photoOf(p) { if (!p) return avatarSVG({ bg: 0, skin: 0, hair: 0, style: 0, shirt: 0 }); const ph = DB.find('photos', x => x.user_id === p.user_id && x.is_primary); return ph ? ph.url : avatarSVG(p.avatar || { bg: 0, skin: 0, hair: 0, style: 0, shirt: 0 }); }
@@ -751,7 +776,7 @@ const Cloud = {
   SKIP: new Set(['otp_codes']),
   /* tables with a public (stripped) view for other members; own/admin rows come from the base table */
   VIEWS: { users: 'users_public', profiles: 'profiles_public', memberships: 'memberships_public' },
-  LIVE: ['messages', 'conversations', 'likes', 'matches', 'date_requests', 'notifications', 'memberships', 'credits', 'reports', 'moderation_cases', 'verification_requests', 'feature_flags', 'event_members'],
+  LIVE: ['friends', 'followers', 'virtual_locations', 'messages', 'conversations', 'likes', 'matches', 'date_requests', 'notifications', 'memberships', 'credits', 'reports', 'moderation_cases', 'verification_requests', 'feature_flags', 'event_members'],
 
   loadScript(src) { return new Promise((res, rej) => { const s = document.createElement('script'); s.src = src; s.onload = res; s.onerror = () => rej(new Error('Could not load ' + src)); document.head.appendChild(s); }); },
   async init() {
@@ -1657,6 +1682,89 @@ const Shake = {
 };
 
 /* =====================================================================
+   THE HIVE — virtual world (Phase 1): zones, presence, social graph, level
+   ===================================================================== */
+const ZONES = [
+  { k: 'plaza', e: '🏠', link: '#/app/hive' }, { k: 'cafe', e: '☕', link: '#/app/chat' }, { k: 'games', e: '🎮', flag: 'ENABLE_GAMES' },
+  { k: 'garden', e: '❤️', link: '#/app/discover', flag: 'ENABLE_DATING' }, { k: 'party', e: '🎤', link: '#/app/hive' }, { k: 'beach', e: '🌴' },
+  { k: 'fame', e: '🏆', act: 'leaderboard' }, { k: 'shop', e: '🛍️', flag: 'ENABLE_SHOP' }, { k: 'room', e: '🏡', act: 'avatarSheet' }
+];
+const PRESENCE_MS = 30 * 60 * 1000;
+const World = {
+  zone(k) { return ZONES.find(z => z.k === k) || ZONES[0]; },
+  open(z) { return !z.flag || Flags.on(z.flag); },
+  locOf(user_id) { return DB.find('virtual_locations', l => l.user_id === user_id); },
+  myZone(user_id) { const l = this.locOf(user_id); return l ? l.zone : 'plaza'; },
+  move(user_id, zone) {
+    if (!RateLimit.ok('move:' + user_id, 12, 60000)) throw new Error(t('rate_slow'));
+    const l = this.locOf(user_id);
+    if (l) DB.update('virtual_locations', l.id, { zone, at: now() }); else DB.insert('virtual_locations', { user_id, zone, at: now() });
+  },
+  present(l) { return l && (Date.now() - new Date(l.at || l.updated_at || l.created_at)) < PRESENCE_MS; },
+  here(user_id, zone) {
+    return DB.where('virtual_locations', l => l.zone === zone && l.user_id !== user_id && this.present(l))
+      .map(l => Profiles.of(l.user_id)).filter(p => p && Profiles.isVisible(p) && !Match.blocked(user_id, p.user_id));
+  },
+  count(zone) { return DB.count('virtual_locations', l => l.zone === zone && this.present(l)); },
+  demoPopulate() {
+    if (Cloud.on || this._pop) return; this._pop = true;
+    const demo = DB.where('users', u => u.is_demo && u.status === 'active');
+    demo.forEach((u, i) => { if (i % 4 === 3) return; const zone = ZONES[(i * 5 + 1) % ZONES.length].k; const l = this.locOf(u.id);
+      if (l) Object.assign(l, { zone, at: now() }); else DB.all('virtual_locations').push({ id: uid(), user_id: u.id, zone, at: now(), created_at: now() }); });
+    DB.save();
+  }
+};
+const Friends = {
+  rel(a, b) { return DB.find('friends', f => (f.a === a && f.b === b) || (f.a === b && f.b === a)); },
+  status(me, other) { const f = this.rel(me, other); if (!f) return 'none'; if (f.status === 'accepted') return 'friends'; return f.requested_by === me ? 'pending_out' : 'pending_in'; },
+  list(me) { return DB.where('friends', f => f.status === 'accepted' && (f.a === me || f.b === me)).map(f => f.a === me ? f.b : f.a); },
+  incoming(me) { return DB.where('friends', f => f.status === 'pending' && f.requested_by !== me && (f.a === me || f.b === me)); },
+  request(me, other) {
+    if (me === other || Match.blocked(me, other)) return;
+    if (!RateLimit.ok('friend:' + me, 20, 60000)) throw new Error(t('rate_slow'));
+    const f = this.rel(me, other);
+    if (f && f.status === 'pending' && f.requested_by !== me) return this.accept(me, f.id);
+    if (f) return f;
+    const r = DB.insert('friends', { a: me, b: other, requested_by: me, status: 'pending' });
+    Notify.send(other, 'friend_req', { name: Profiles.of(me)?.display_name }, { link: '#/app/world' });
+    if (!Cloud.on && DB.get('users', other)?.is_demo && Math.random() < .7) setTimeout(() => { DB.update('friends', r.id, { status: 'accepted' }); Notify.send(me, 'friend_ok', { name: Profiles.of(other)?.display_name }, { link: '#/app/world' }); UI.refreshBadges(); if (location.hash === '#/app/world') Router.render(); }, 2500);
+    return r;
+  },
+  accept(me, id) { const f = DB.get('friends', id); if (!f || f.requested_by === me) return; DB.update('friends', id, { status: 'accepted' }); Notify.send(f.requested_by, 'friend_ok', { name: Profiles.of(me)?.display_name }, { link: '#/app/world' }); return f; },
+  remove(me, other) { const f = this.rel(me, other); if (f) DB.remove('friends', f.id); }
+};
+const Follow = {
+  is(me, other) { return !!DB.find('followers', f => f.follower_id === me && f.followee_id === other); },
+  toggle(me, other) {
+    const f = DB.find('followers', x => x.follower_id === me && x.followee_id === other);
+    if (f) { DB.remove('followers', f.id); return false; }
+    if (!RateLimit.ok('follow:' + me, 30, 60000)) throw new Error(t('rate_slow'));
+    DB.insert('followers', { follower_id: me, followee_id: other }); Notify.send(other, 'follow', { name: Profiles.of(me)?.display_name }, { link: '#/app/world' }); return true;
+  },
+  followers(u) { return DB.count('followers', f => f.followee_id === u); },
+  following(u) { return DB.count('followers', f => f.follower_id === u); }
+};
+const Social = {
+  wave(me, other) {
+    if (!RateLimit.ok('wave:' + me + ':' + other, 1, 60000)) throw new Error(t('rate_slow'));
+    Notify.send(other, 'wave', { name: Profiles.of(me)?.display_name }, { link: '#/app/world' });
+  }
+};
+const LEVELS = [0, 100, 300, 700, 1500];
+const Level = {
+  xp(u) {
+    const p = Profiles.of(u) || {};
+    return Friends.list(u).length * 25 + Match.myMatches(u).length * 30 + DB.count('likes', l => l.from_id === u && l.type !== 'pass') * 3
+      + DB.count('messages', m => m.sender_id === u) * 2 + DB.count('event_members', e => e.user_id === u) * 40
+      + DB.count('community_members', c => c.user_id === u) * 15 + Follow.followers(u) * 5 + ((p.completion || 0) >= 80 ? 50 : 0);
+  },
+  of(u) {
+    const xp = this.xp(u); let i = 0; while (i < LEVELS.length - 1 && xp >= LEVELS[i + 1]) i++;
+    const next = LEVELS[i + 1]; return { i, name: t('lv' + i), xp, next, pct: next ? Math.round((xp - LEVELS[i]) / (next - LEVELS[i]) * 100) : 100 };
+  }
+};
+
+/* =====================================================================
    CLOUD-MODE SERVICE OVERRIDES — same function names, real providers.
    ===================================================================== */
 if (Cloud.on) {
@@ -1871,7 +1979,7 @@ function viewAuth() {
 }
 function afterLogin() {
   const u = Session.user; const p = Session.profile;
-  if (!p || u.status === 'onboarding') go('#/onboard'); else go('#/app/discover');
+  if (!p || u.status === 'onboarding') go('#/onboard'); else go(Flags.on('ENABLE_VIRTUAL_WORLD') ? '#/app/world' : '#/app/discover');
 }
 
 /* =====================================================================
@@ -1952,8 +2060,11 @@ function shell(inner, tab, opts = {}) {
   const u = Session.user; const unread = Notify.unread(u.id);
   const chatUnread = Chat.list(u.id).reduce((a, x) => a + x.unread, 0);
   const pendingDates = DB.count('date_requests', d => d.to_id === u.id && d.status === 'pending');
-  const nav = [['discover', '🏠'], ['matches', '❤️'], ['chat', '💬'], ['dates', '📅'], ...(Flags.on('ENABLE_COMMUNITIES') || Flags.on('ENABLE_EVENTS') ? [['hive', '🍯']] : []), ['profile', '🐝']];
-  const badge = k => k === 'chat' && chatUnread ? `<i class="badge-dot" style="right:24%">${chatUnread}</i>` : k === 'dates' && pendingDates ? `<i class="badge-dot" style="right:24%">${pendingDates}</i>` : '';
+  const nav = Flags.on('ENABLE_VIRTUAL_WORLD') ? [['world', '🏠'], ['discover', '❤️'], ['matches', '💞'], ['chat', '💬'], ['profile', '🐝']]
+    : [['discover', '🏠'], ['matches', '❤️'], ['chat', '💬'], ['dates', '📅'], ...(Flags.on('ENABLE_COMMUNITIES') || Flags.on('ENABLE_EVENTS') ? [['hive', '🍯']] : []), ['profile', '🐝']];
+  const frReq = Friends.incoming(u.id).length;
+  const bn = k => k === 'chat' ? chatUnread : k === 'dates' ? pendingDates : k === 'world' ? pendingDates + frReq : 0;
+  const badge = k => bn(k) ? `<i class="badge-dot" style="right:24%">${bn(k)}</i>` : '';
   return `<header class="topbar"><div class="inner" style="max-width:560px">${Brand.wordmark()}<span class="grow"></span>
     ${Flags.on('ENABLE_CREDITS') ? `<button class="btn btn-ghost btn-sm" data-act="goCredits">🍯 ${Credits.balance(u.id)}</button>` : ''}
     <button class="icon-btn" aria-label="${t('notifications')}" data-act="notifs">🔔${unread ? `<i class="badge-dot">${unread}</i>` : ''}</button></div></header>
@@ -2061,6 +2172,7 @@ function profileSheet(user_id, ctx = {}) {
   sheet(`<div class="p-hero"><img src="${photoOf(p)}" alt=""></div>
     <div class="row between" style="margin-top:12px"><h2 style="margin:0">${esc(p.display_name)}, ${Profiles.age(p)} ${vBadge(p)}</h2>${tierBadge(user_id)}</div>
     <p class="muted">📍 ${p.privacy?.location === false ? '—' : vt('cities', p.city)}${(() => { const d = Geo.dist(me, p); return d != null ? ' · <span class="dist">' + Geo.label(d) + '</span>' : ''; })()} · ${t('compat')} ${Match.compat(me, p)}%</p>
+    ${user_id === me.user_id ? '' : `<div style="margin:6px 0">${socialBtns(user_id)}</div>`}
     ${user_id === me.user_id ? '' : Match.matchBetween(me.user_id, user_id) ? `<p><span class="st ok">❤️ ${t('already_matched')}</span></p>` : DB.find('likes', l => l.from_id === me.user_id && l.to_id === user_id && ['like', 'super'].includes(l.type)) ? `<p><span class="tag">❤️ ${t('liked_already')}</span></p>` : `<div class="row" style="gap:8px;margin:6px 0 4px"><button class="btn btn-honey grow" data-act="likeUser" data-uid="${user_id}" data-t="like">❤️ ${t('like')}</button><button class="btn btn-ink" data-act="likeUser" data-uid="${user_id}" data-t="super">⭐ ${t('super_like')}</button></div>`}
     ${photos.length > 1 ? `<div class="row wrap">${photos.slice(1).map(x => `<img src="${x.url}" style="width:30%;border-radius:10px" alt="">`).join('')}</div>` : ''}
     ${p.about ? `<h3>${t('about')}</h3><p>${esc(p.about)}</p>` : ''}
@@ -2320,6 +2432,85 @@ function radarSheet(res) {
     <div class="row" style="margin-top:14px;gap:8px"><button class="btn btn-honey grow" data-act="shakeGo">📳 ${t('shake_btn')}</button><button class="btn btn-ghost" data-act="closeSheet">${t('close')}</button></div>
     <p class="tiny muted" style="margin-top:8px">${t('shake_hint')}</p>`);
 }
+
+/* =====================================================================
+   THE HIVE — world home, zone panel, social actions, avatar builder
+   ===================================================================== */
+const WorldUI = { sel: null };
+function socialBtns(uid_, compact) {
+  const me = Session.user.id; const st = Friends.status(me, uid_); const fol = Follow.is(me, uid_);
+  const b = (act, label, cls = 'btn-ghost', extra = '') => `<button class="btn ${cls} btn-sm" data-act="${act}" data-uid="${uid_}" ${extra}>${label}</button>`;
+  return `<div class="row wrap" style="gap:6px">${b('wave', '👋' + (compact ? '' : ' ' + t('wave')))}
+    ${st === 'friends' ? `<span class="tag">🤝 ${t('is_friend')}</span>` : st === 'pending_out' ? `<span class="tag">⏳ ${t('friend_pending')}</span>`
+      : st === 'pending_in' ? b('friendAccept', '🤝 ' + t('friend_accept'), 'btn-honey', `data-id="${Friends.rel(me, uid_).id}"`) : b('friendAdd', '➕' + (compact ? '' : ' ' + t('add_friend')))}
+    ${b('followToggle', fol ? '⭐ ' + t('unfollow') : '☆ ' + t('follow'), fol ? 'btn-ink' : 'btn-ghost')}</div>`;
+}
+function beeRow(p) {
+  return `<div class="srch-row"><img src="${avatarSVG(p.avatar || {})}" alt="" style="width:52px;height:64px;border-radius:12px;object-fit:cover;flex:none">
+    <div class="grow"><div class="nm" data-act="openProfile" data-uid="${p.user_id}">${esc(p.display_name)}, ${Profiles.age(p)} ${vBadge(p)} <span class="tag" style="font-size:.7rem">${Level.of(p.user_id).name}</span></div>
+    ${socialBtns(p.user_id, true)}</div></div>`;
+}
+function worldMap(me) {
+  const cur = World.myZone(me);
+  const pos = [[1, 0], [0, 1], [2, 1], [1, 1], [0, 2], [2, 2], [1, 2], [0, 3], [2, 3]];
+  const order = ['fame', 'cafe', 'games', 'plaza', 'party', 'beach', 'garden', 'shop', 'room'];
+  const tiles = order.map((k, i) => { const z = World.zone(k); const [cx, cy] = pos[i]; const open = World.open(z); const n = World.count(k) - (cur === k ? 1 : 0);
+    const x = cx === 1 ? 50 : cx === 0 ? 27 : 73, y = cx === 1 ? 3 + cy * 27 : 16.5 + (cy - 1) * 27;
+    return `<button class="zone ${cur === k ? 'here' : ''} ${WorldUI.sel === k ? 'sel' : ''} ${open ? '' : 'locked'}" style="left:${x}%;top:${y}%" data-act="zoneTap" data-z="${k}" aria-label="${t('z_' + k)}">
+      <span class="ze">${open ? z.e : '🔒'}</span><span class="zn">${t('z_' + k)}</span>${n > 0 && open ? `<span class="zc">🐝 ${n}</span>` : ''}
+      ${cur === k ? `<img class="me-av" src="${avatarSVG(Session.profile.avatar || {})}" alt="">` : ''}</button>`; }).join('');
+  return `<div class="island"><div class="sea"></div>${tiles}</div>`;
+}
+function zonePanel(me, k) {
+  const z = World.zone(k); const open = World.open(z); const cur = World.myZone(me);
+  const people = open ? World.here(me, k) : [];
+  const action = !open ? `<span class="tag">🔒 ${t('coming_phase')}</span>`
+    : cur !== k ? `<button class="btn btn-honey btn-sm" data-act="zoneGo" data-z="${k}">🐝 ${t('go_here')}</button>`
+    : z.link ? `<a class="btn btn-honey btn-sm" href="${z.link}">${t('open_zone')} →</a>` : z.act ? `<button class="btn btn-honey btn-sm" data-act="${z.act}">${t('open_zone')} →</button>` : '';
+  return `<div class="panel" style="margin-top:12px"><div class="row between"><div><h3 style="margin:0">${z.e} ${t('z_' + k)}</h3><div class="small muted">${t('zd_' + k)}${cur === k ? ' · <b>' + t('you_are_here') + '</b>' : ''}</div></div>${action}</div>
+    ${open ? `<h4 style="margin:14px 0 4px">🐝 ${t('bees_here')} (${people.length})</h4>${people.length ? people.slice(0, 20).map(beeRow).join('') : `<p class="small muted">${t('nobody_here')}</p>`}` : ''}</div>`;
+}
+function viewWorld() {
+  const u = Session.user, p = Session.profile, me = u.id; World.demoPopulate();
+  if (!WorldUI.sel) WorldUI.sel = World.myZone(me);
+  const lv = Level.of(me); const fr = Friends.list(me);
+  const onlineFr = fr.map(id => ({ p: Profiles.of(id), u: DB.get('users', id) })).filter(x => x.p && x.u && x.u.online);
+  const reqs = Friends.incoming(me);
+  const recs = Match.deck(me).slice(0, 6).map(x => x.p);
+  const pendingDates = DB.count('date_requests', d => d.to_id === me && d.status === 'pending');
+  const inner = `
+    <div class="panel hero-card"><div class="row" style="gap:14px;align-items:center">
+      <button class="av-btn" data-act="avatarSheet" aria-label="${t('avatar_h')}"><img src="${avatarSVG(p.avatar || {})}" alt=""></button>
+      <div class="grow"><div class="row between"><b style="font-size:1.15rem">${esc(p.display_name)}</b><span class="lv-badge">${t('level_n', { n: lv.i + 1 })} · ${lv.name}</span></div>
+        <div class="progress" style="margin:8px 0 4px"><i style="width:${lv.pct}%"></i></div>
+        <div class="tiny muted">${lv.next ? t('xp_to', { n: lv.next - lv.xp, l: t('lv' + (lv.i + 1)) }) : t('xp_max')} · ${lv.xp} XP</div>
+        <div class="small" style="margin-top:6px">🤝 ${fr.length} ${t('friends')} · ⭐ ${Follow.followers(me)} ${t('followers')}${Flags.on('ENABLE_HONEY') ? ` · 🍯 ${Credits.balance(me)}` : ''}</div></div></div></div>
+    <div class="row between" style="margin-top:14px"><div><h2 style="margin:0">🐝 ${t('world_h')}</h2><div class="small muted">${t('world_sub')}</div></div>
+      <div class="row" style="gap:6px"><a class="btn btn-ghost btn-sm" href="#/app/dates">📅${pendingDates ? ' ' + pendingDates : ''}</a><a class="btn btn-ghost btn-sm" href="#/app/hive">🍯</a></div></div>
+    ${worldMap(me)}
+    ${zonePanel(me, WorldUI.sel)}
+    ${reqs.length ? `<div class="panel" style="margin-top:12px"><h3 style="margin:0 0 6px">🤝 ${t('friend_requests')}</h3>${reqs.map(f => { const q = Profiles.of(f.requested_by); return q ? `<div class="srch-row"><img src="${avatarSVG(q.avatar || {})}" alt="" style="width:44px;height:54px;border-radius:10px;object-fit:cover"><div class="grow nm" data-act="openProfile" data-uid="${q.user_id}">${esc(q.display_name)}</div><button class="btn btn-honey btn-sm" data-act="friendAccept" data-id="${f.id}" data-uid="${q.user_id}">${t('friend_accept')}</button><button class="btn btn-ghost btn-sm" data-act="friendDecline" data-id="${f.id}">✕</button></div>` : ''; }).join('')}</div>` : ''}
+    <h3 style="margin:18px 0 6px">🟢 ${t('online_friends')}</h3>
+    ${onlineFr.length ? `<div class="hscroll">${onlineFr.map(x => `<button class="mini-bee" data-act="openProfile" data-uid="${x.p.user_id}"><img src="${avatarSVG(x.p.avatar || {})}" alt=""><span>${esc(x.p.display_name)}</span></button>`).join('')}</div>` : `<p class="small muted">—</p>`}
+    ${Flags.on('ENABLE_DATING') && recs.length ? `<h3 style="margin:18px 0 6px">✨ ${t('recommended')}</h3><div class="hscroll">${recs.map(q => `<button class="mini-bee" data-act="openProfile" data-uid="${q.user_id}"><img src="${photoOf(q)}" alt="" style="object-fit:cover"><span>${esc(q.display_name)}, ${Profiles.age(q)}</span></button>`).join('')}</div>` : ''}`;
+  return shell(inner, 'world');
+}
+function leaderboardSheet() {
+  const rows = DB.where('profiles', p => Profiles.isVisible(p)).map(p => ({ p, n: Friends.list(p.user_id).length, lv: Level.of(p.user_id) }))
+    .sort((a, b) => (b.lv.xp - a.lv.xp) || (b.n - a.n)).slice(0, 20);
+  sheet(`<h2>🏆 ${t('leaderboard')}</h2>${rows.map((r, i) => `<div class="srch-row"><b style="width:28px">${i < 3 ? ['🥇', '🥈', '🥉'][i] : i + 1}</b><img src="${avatarSVG(r.p.avatar || {})}" alt="" style="width:44px;height:54px;border-radius:10px"><div class="grow"><div class="nm" data-act="openProfile" data-uid="${r.p.user_id}">${esc(r.p.display_name)}</div><div class="tiny muted">${r.lv.name} · ${r.lv.xp} XP · 🤝 ${r.n}</div></div></div>`).join('')}`);
+}
+const AV = { d: null };
+const AV_OPTS = { skin: 6, hair: 6, style: 5, face: 4, shirt: 6, acc: 6, bg: 7 };
+function avatarSheet() {
+  if (!AV.d) AV.d = { bg: 0, skin: 0, hair: 0, style: 0, shirt: 0, face: 0, acc: 0, glasses: false, ...(Session.profile.avatar || {}) };
+  const d = AV.d;
+  const row = (k, label) => `<div style="margin-top:10px"><div class="small muted">${t(label)}</div><div class="row wrap" style="gap:6px;margin-top:4px">${Array.from({ length: AV_OPTS[k] }, (_, i) => `<button class="chip ${d[k] % AV_OPTS[k] === i ? 'on' : ''}" data-act="avSet" data-k="${k}" data-v="${i}" style="min-width:40px">${i + 1}</button>`).join('')}</div></div>`;
+  sheet(`<h2>🏡 ${t('avatar_h')}</h2><div class="center"><img id="avPreview" src="${avatarSVG(d)}" alt="" style="width:160px;height:200px;border-radius:22px;border:3px solid var(--honey)"></div>
+    ${row('skin', 'av_skin')}${row('hair', 'av_hair')}${row('style', 'av_style')}${row('face', 'av_face')}${row('shirt', 'av_outfit')}${row('acc', 'av_acc')}${row('bg', 'av_bg')}
+    <label class="check" style="margin-top:10px"><input type="checkbox" data-change="avGlasses" ${d.glasses ? 'checked' : ''}><span>${t('av_glasses')}</span></label>
+    <div class="row" style="gap:8px;margin-top:14px"><button class="btn btn-honey grow" data-act="avSave">${t('avatar_save')}</button><button class="btn btn-ghost" data-act="avRandom">🎲</button></div>`);
+}
 /* =====================================================================
    ADMIN PORTAL  (#/admin) — separate from the member app
    ===================================================================== */
@@ -2566,7 +2757,7 @@ const Router = {
     if (u && ['banned', 'suspended', 'deleted'].includes(u.status)) { const s = u.status; Auth.logout(); if (s !== 'deleted') toast(t('account_blocked', { s })); }
     const me = Session.user;
     if (parts[0] === 'admin') { html = viewAdmin(); document.title = 'Club Bee Admin'; }
-    else if (!parts[0]) { if (me && me.status === 'active' && Session.profile) return go('#/app/discover'); html = viewLanding(); document.title = 'Club Bee — ผึ้งน้อยรุมล้อม'; }
+    else if (!parts[0]) { if (me && me.status === 'active' && Session.profile) return go(Flags.on('ENABLE_VIRTUAL_WORLD') ? '#/app/world' : '#/app/discover'); html = viewLanding(); document.title = 'Club Bee — ผึ้งน้อยรุมล้อม'; }
     else if (parts[0] === 'auth') { if (me) return afterLogin(); html = viewAuth(); }
     else if (parts[0] === 'onboard') {
       if (!me) return go('#/auth');
@@ -2576,11 +2767,11 @@ const Router = {
     } else if (parts[0] === 'app') {
       if (!me) return go('#/auth');
       if (me.status !== 'active' || !Session.profile) return go('#/onboard');
-      const v = parts[1] || 'discover';
-      html = v === 'discover' ? viewDiscover() : v === 'matches' ? viewMatches() : v === 'chat' ? (parts[2] ? viewChatRoom(parts[2]) : viewChatList())
+      const v = parts[1] || (Flags.on('ENABLE_VIRTUAL_WORLD') ? 'world' : 'discover');
+      html = v === 'world' ? viewWorld() : v === 'discover' ? viewDiscover() : v === 'matches' ? viewMatches() : v === 'chat' ? (parts[2] ? viewChatRoom(parts[2]) : viewChatList())
         : v === 'dates' ? viewDates() : v === 'profile' ? viewProfile() : v === 'membership' ? viewMembership() : v === 'credits' ? viewCredits()
         : v === 'hive' ? viewHive() : viewDiscover();
-      document.title = 'Club Bee · ' + t('nav_' + (['discover', 'matches', 'chat', 'dates', 'profile', 'hive'].includes(v) ? v : 'profile'));
+      document.title = 'Club Bee · ' + t('nav_' + (['world', 'discover', 'matches', 'chat', 'dates', 'profile', 'hive'].includes(v) ? v : 'profile'));
     } else return go('#/');
     root().innerHTML = html;
     this.after(parts);
@@ -2702,7 +2893,7 @@ const Actions = {
     if (OB.step === 8) { obCommit(); toast('🐝 ✓'); }
     OB.step = Math.min(9, OB.step + 1); Router.render(); window.scrollTo(0, 0);
   },
-  obFinish() { OB.step = 1; OB.uid = null; go('#/app/discover'); },
+  obFinish() { OB.step = 1; OB.uid = null; go(Flags.on('ENABLE_VIRTUAL_WORLD') ? '#/app/world' : '#/app/discover'); },
   /* discover */
   goCredits() { go('#/app/credits'); },
   notifs() { notifSheet(); },
@@ -2730,6 +2921,18 @@ const Actions = {
   favMatch(el) { const m = DB.get('matches', el.dataset.mid); const f = m.favorite_by || []; DB.update('matches', m.id, { favorite_by: f.includes(me()) ? f.filter(x => x !== me()) : [...f, me()] }); Router.render(); },
   goDiscover() { go('#/app/discover'); },
   nameSearch() { nameSearchSheet(); },
+  zoneTap(el) { const k = el.dataset.z; if (WorldUI.sel === k && World.open(World.zone(k)) && World.myZone(me()) !== k) return Actions.zoneGo(el); WorldUI.sel = k; Router.render(); },
+  zoneGo(el) { const k = el.dataset.z; World.move(me(), k); WorldUI.sel = k; toast('🐝 ' + t('moved_to', { z: t('z_' + k) })); Router.render(); },
+  wave(el) { Social.wave(me(), el.dataset.uid); toast(t('waved', { name: Profiles.of(el.dataset.uid)?.display_name || '' })); },
+  friendAdd(el) { Friends.request(me(), el.dataset.uid); toast('🤝 ' + t('friend_sent')); socialRefresh(el.dataset.uid); },
+  friendAccept(el) { const f = Friends.accept(me(), el.dataset.id); if (f) toast('🤝 ' + t('friend_added', { name: Profiles.of(f.requested_by)?.display_name || '' })); socialRefresh(el.dataset.uid); },
+  friendDecline(el) { DB.remove('friends', el.dataset.id); Router.render(); },
+  followToggle(el) { Follow.toggle(me(), el.dataset.uid); socialRefresh(el.dataset.uid); },
+  leaderboard() { leaderboardSheet(); },
+  avatarSheet() { AV.d = null; avatarSheet(); },
+  avSet(el) { AV.d[el.dataset.k] = +el.dataset.v; avatarSheet(); },
+  avRandom() { Object.keys(AV_OPTS).forEach(k => AV.d[k] = rnd(0, AV_OPTS[k] - 1)); AV.d.glasses = Math.random() < .3; avatarSheet(); },
+  avSave() { Profiles.save(me(), { avatar: { ...AV.d } }); closeSheet(); toast('✅ ' + t('avatar_saved')); Router.render(); },
   likeUser(el) {
     const uid_ = el.dataset.uid, ty = el.dataset.t || 'like';
     const res = Match.act(me(), uid_, ty);
@@ -2982,6 +3185,7 @@ const Changes = {
   async obPhoto(el) { try { OB.photo = await processImage(el.files[0]); Router.render(); } catch (e) { setErr('oberr', e.message); } },
   async chatImage(el) { try { const url = await processImage(el.files[0], 720); Chat.send(me(), ChatUI.cid, url, 'image'); UI.refreshChat(ChatUI.cid); } catch (e) { toast(e.message); } el.value = ''; },
   async editPhoto(el) { try { EP.photo = await processImage(el.files[0]); $('#ephoto').src = EP.photo; } catch (e) { setErr('eperr', e.message); } },
+  avGlasses(el) { AV.d.glasses = el.checked; const i = $('#avPreview'); if (i) i.src = avatarSVG(AV.d); },
   privacy(el) { const p = Session.profile; Profiles.save(me(), { privacy: { ...(p.privacy || {}), [el.dataset.k]: el.checked } }); Audit.log('PRIVACY_CHANGED', me(), { [el.dataset.k]: el.checked }, { type: 'user', id: me() }); toast('✓'); },
   admSec(el) { ADM.sec = el.value; ADM.page = 1; ADM.q = ''; Router.render(); },
   admSearch(el) { ADM.q = el.value.trim(); ADM.page = 1; Router.render(); },
@@ -3031,6 +3235,8 @@ document.addEventListener('clubbee:shake', () => {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') { if ($('#match-ov')) $('#match-ov').remove(); else if ($('#sheet-ov') && !$('#gateck')) closeSheet(); } });
 document.addEventListener('visibilitychange', () => { const u = Session.user; if (u) { DB.update('users', u.id, { online: document.visibilityState === 'visible', last_active: now() }); } if (document.visibilityState === 'visible' && ChatUI.cid) UI.refreshChat(ChatUI.cid); });
 
+
+function socialRefresh(uid_) { if ($('#sheet-ov .p-hero')) profileSheet(uid_); else if ($('#srchRes')) refreshSearch(); if (!$('#sheet-ov') || location.hash === '#/app/world') Router.render(); }
 
 /* ---------- show / hide password (eye button on every password field) ---------- */
 const EYE_ON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
